@@ -1,6 +1,6 @@
 React HN
 ===
-This tutorial will show you how to build [the Hacker News front page](https://news.ycombinator.com) in React ([view finished tutorial](https://mking.github.io/react-hn)). To do this, we are going to build small, self-contained components, and then we will compose them (like Lego bricks) to get the final result.
+This tutorial will show you how to build the [Hacker News front page](https://news.ycombinator.com) in React ([view finished tutorial](https://mking.github.io/react-hn)). To do this, we are going to build small, self-contained components, and then we will compose them (like Lego bricks) to get the final result.
 
 Background required: HTML/CSS/JS
 
@@ -8,9 +8,7 @@ There are five parts to this tutorial:
 
  1. [Setup](#setup)
 
-    <img src="img/Setup.png" width="100">
-
- 2. Build the NewsItem
+ 1. NewsItem component
 
     <img src="img/NewsItem@2x.png" width="532">
 
@@ -18,25 +16,38 @@ There are five parts to this tutorial:
 
         <img src="img/Title.png" width="107">
 
-     2. [Display the title and domain.](#newsitem-title-and-domain)
+     1. [Display the title and domain.](#newsitem-title-and-domain)
 
         <img src="img/TitleDomain.png" width="213">
 
-     3. [Display the subtext.](#newsitem-subtext)
+     1. [Display the subtext.](#newsitem-subtext)
 
         <img src="img/Subtext.png" width="268">
 
-     4. [Display the rank and vote.](#newsitem-rank-and-vote)
+     1. [Display the rank and vote.](#newsitem-rank-and-vote)
 
         <img src="img/RankVote.png" width="297">
 
- 3. [Build the NewsHeader](#newsheader)
+ 1. NewsHeader component
 
     <img src="img/NewsHeader@2x.png" width="532">
- 4. [Build the NewsList](#newslist)
+
+    1. [Display the logo and title.](#newsheader-logo-and-title)
+
+       <img src="img/LogoTitle.png" width="140">
+
+    1. [Display the nav links.](#newsheader-nav)
+
+       <img src="img/Nav.png" width="453">
+
+    1. [Display the login link.](#newsheader-login)
+
+       <img src="img/Login.png" width="530">
+
+ 1. NewsList component
 
     <img src="img/NewsList@2x.png" width="532">
- 5. [Display live data](#hacker-news-api)
+ 1. [Display live data](#hacker-news-api)
 
     During development, we use static data from the /json directory.
 
@@ -164,7 +175,7 @@ NewsItem Title
 
     <img src="img/DeveloperConsole.png" width="274">
 
- 2. Refresh the browser. You should see the following.
+ 1. Refresh the browser. You should see the following.
 
     <img src="img/Title.png" width="107">
 
@@ -194,7 +205,7 @@ NewsItem Title and Domain
       ...
     ```
 
- 2. Update the CSS. We are following [Jacob Thornton's CSS style guide](https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06).
+ 1. Update the CSS. We are following [Jacob Thornton's CSS style guide](https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06).
     ```
     body {
       font-family: Verdana, sans-serif;
@@ -216,7 +227,7 @@ NewsItem Title and Domain
     }
     ```
 
- 3. Refresh the browser. You should see the following.
+ 1. Refresh the browser. You should see the following.
 
     <img src="img/TitleDomain.png" width="213">
 
@@ -266,7 +277,7 @@ NewsItem Subtext
       }
     ```
 
- 2. Update the CSS.
+ 1. Update the CSS.
     ```
     .newsItem-subtext {
       font-size: 7pt;
@@ -282,7 +293,7 @@ NewsItem Subtext
     }
     ```
 
- 3. Refresh the browser. You should see the following.
+ 1. Refresh the browser. You should see the following.
 
     <img src="img/Subtext.png" width="268">
 
@@ -325,7 +336,7 @@ NewsItem Rank and Vote
       }
     ```
 
- 2. Update the CSS.
+ 1. Update the CSS.
     ```
     .newsItem {
       ...
@@ -349,12 +360,218 @@ NewsItem Rank and Vote
     }
     ```
 
- 3. Refresh the browser. You should see the following.
+ 1. Refresh the browser. You should see the following.
 
     <img src="img/RankVote.png" width="297">
 
-NewsHeader
+NewsHeader Logo and Title
 ---
+ 1. Create a new JS file: /js/NewsHeader.js.
+    ```
+    var $ = require('jquery');
+    var React = require('react');
+
+    var NewsHeader = React.createClass({
+      getLogo: function () {
+        return (
+          <div className="newsHeader-logo">
+            <a href="https://www.ycombinator.com"><img src="/img/y18.gif"/></a>
+          </div>
+        );
+      },
+
+      getTitle: function () {
+        return (
+          <div className="newsHeader-title">
+            <a className="newsHeader-textLink" href="https://news.ycombinator.com">Hacker News</a>
+          </div>
+        );
+      },
+
+      render: function () {
+        return (
+          <div className="newsHeader">
+            {this.getLogo()}
+            {this.getTitle()}
+          </div>
+        );
+      }
+    });
+
+    React.render(<NewsHeader/>, $('#content')[0]);
+    ```
+
+ 1. Create a new CSS file: /css/NewsHeader.css.
+    ```
+    body {
+      font-family: Verdana, sans-serif;
+    }
+
+    .newsHeader {
+      align-items: center;
+      background: #ff6600;
+      color: black;
+      display: flex;
+      font-size: 10pt;
+      padding: 2px;
+    }
+
+    .newsHeader-logo {
+      border: 1px solid white;
+      flex-basis: 18px;
+      height: 18px;
+    }
+
+    .newsHeader-textLink {
+      color: black;
+      text-decoration: none;
+    }
+
+    .newsHeader-title {
+      font-weight: bold;
+      margin-left: 4px;
+    }
+    ```
+
+ 1. Create a new HTML file: /html/NewsHeader.html.
+    ```
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>NewsHeader</title>
+        <link href="/css/NewsHeader.css" rel="stylesheet">
+      </head>
+      <body>
+        <div id="content"></div>
+        <script src="/build/js/NewsHeader.js"></script>
+      </body>
+    </html>
+    ```
+
+ 1. Run Watchify against the new JS file.
+    ```
+    watchify -v -o build/js/NewsHeader.js js/NewsHeader.js
+    ```
+
+ 1. Start the HTTP server if necessary.
+    ```
+    python -m SimpleHTTPServer 8888
+    ```
+
+ 1. Visit [http://localhost:8888/html/NewsHeader.html](http://localhost:8888/html/NewsHeader.html). You should see the following.
+
+    <img src="img/LogoTitle.png" width="140">
+
+NewsHeader Nav
+---
+ 1. Update the JS.
+    ```
+    var _ = require('lodash');
+    ...
+    var NewsHeader = React.createClass({
+      ...
+      getNav: function () {
+        var navLinks = [
+          {
+            name: 'new',
+            url: 'newest'
+          },
+          {
+            name: 'comments',
+            url: 'newcomments'
+          },
+          {
+            name: 'show',
+            url: 'show'
+          },
+          {
+            name: 'ask',
+            url: 'ask'
+          },
+          {
+            name: 'jobs',
+            url: 'jobs'
+          },
+          {
+            name: 'submit',
+            url: 'submit'
+          }
+        ];
+
+        return (
+          <div className="newsHeader-nav">
+            {_.map(navLinks, function (navLink) {
+              return (
+                <a key={navLink.url} className="newsHeader-navLink newsHeader-textLink" href={'https://news.ycombinator.com/' + navLink.path}>
+                  {navLink.name}
+                </a>
+              );
+            })}
+          </div>
+        );
+      },
+      ...
+      render: function () {
+        return (
+          <div className="newsHeader">
+            ...
+            {this.getNav()}
+          </div>
+        );
+      }
+    ```
+
+ 1. Update the CSS.
+    ```
+    .newsHeader-nav {
+      flex-grow: 1;
+      margin-left: 10px;
+    }
+    ...
+    .newsHeader-navLink:not(:first-child)::before {
+      content: ' | ';
+    }
+    ```
+
+ 1. Refresh the browser. You should see the following.
+
+    <img src="img/Nav.png" width="453">
+
+NewsHeader Login
+---
+ 1. Update the JS.
+    ```
+    var NewsHeader = React.createClass({
+      ...
+      getLogin: function () {
+        return (
+          <div className="newsHeader-login">
+            <a className="newsHeader-textLink" href="https://news.ycombinator.com/login?whence=news">login</a>
+          </div>
+        );
+      },
+      ...
+      render: function () {
+        return (
+          <div className="newsHeader">
+            ...
+            {this.getLogin()}
+          </div>
+        );
+      }
+    ```
+
+ 1. Update the CSS.
+    ```
+    .newsHeader-login {
+      margin-right: 5px;
+    }
+    ```
+
+ 1. Refresh the browser. You should see the following.
+
+    <img src="img/Login.png" width="530">
 
 NewsList
 ---
