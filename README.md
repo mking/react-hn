@@ -8,7 +8,7 @@ There are five parts to this tutorial:
 
  1. [Setup](#setup)
 
-    <img src="img/Setup.png" width="">
+    <img src="img/Setup.png" width="100">
 
  2. Build the NewsItem
 
@@ -125,6 +125,10 @@ Setup
     python -m SimpleHTTPServer 8888
     ```
 
+    You should see the following.
+
+    <img src="img/Setup.png" width="100">
+
 NewsItem Title
 ---
  1. Load data from the JSON file.
@@ -160,7 +164,9 @@ NewsItem Title
 
     <img src="img/DeveloperConsole.png" width="274">
 
- 2. Refresh the browser to view your changes.
+ 2. Refresh the browser. You should see the following.
+
+    <img src="img/Title.png" width="107">
 
 NewsItem Title and Domain
 ---
@@ -210,7 +216,9 @@ NewsItem Title and Domain
     }
     ```
 
- 3. Refresh the browser.
+ 3. Refresh the browser. You should see the following.
+
+    <img src="img/TitleDomain.png" width="213">
 
 NewsItem Subtext
 ---
@@ -274,7 +282,9 @@ NewsItem Subtext
     }
     ```
 
- 3. Refresh the browser.
+ 3. Refresh the browser. You should see the following.
+
+    <img src="img/Subtext.png" width="268">
 
 NewsItem Rank and Vote
 ---
@@ -339,7 +349,9 @@ NewsItem Rank and Vote
     }
     ```
 
- 3. Refresh the browser.
+ 3. Refresh the browser. You should see the following.
+
+    <img src="img/RankVote.png" width="297">
 
 NewsHeader
 ---
