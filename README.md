@@ -4,7 +4,7 @@ This tutorial will show you how to build the [Hacker News](https://news.ycombina
 
 Background required: HTML/CSS/JS
 
-Out of scope: Flux, event handling (event handling is not needed to create the HN front page)
+Out of scope: Flux, event handling (event handling is not needed to create the HN front page), Firebase (a production HN client would use ReactFire, but we are using $.ajax to illustrate JSON API access)
 
 There are five parts to this tutorial:
 
@@ -245,6 +245,8 @@ NewsItem Subtext
       getCommentLink: function () {
         var commentText = 'discuss';
         if (this.props.item.kids && this.props.item.kids.length) {
+          // This only counts top-level comments.
+          // To get the full count, recursively get item details for this news item.
           commentText = this.props.item.kids.length + ' comments';
         }
 
