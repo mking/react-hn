@@ -4,6 +4,8 @@ This tutorial will show you how to build the [Hacker News](https://news.ycombina
 
 Background required: HTML/CSS/JS
 
+Out of scope: Flux, event handling (event handling is not needed to create the HN front page)
+
 There are five parts to this tutorial:
 
  1. [Setup](#setup)
@@ -14,19 +16,19 @@ There are five parts to this tutorial:
 
      1. [Display the title.](#newsitem-title)
 
-        <img src="img/Title.png" width="110">
+        <img src="img/NewsItemTitle.png" width="110">
 
      1. [Display the domain.](#newsitem-domain)
 
-        <img src="img/Domain.png" width="213">
+        <img src="img/NewsItemDomain.png" width="213">
 
      1. [Display the subtext.](#newsitem-subtext)
 
-        <img src="img/Subtext.png" width="268">
+        <img src="img/NewsItemSubtext.png" width="268">
 
      1. [Display the rank and vote.](#newsitem-rank-and-vote)
 
-        <img src="img/RankVote.png" width="297">
+        <img src="img/NewsItemRankVote.png" width="297">
 
  1. NewsHeader component
 
@@ -34,19 +36,28 @@ There are five parts to this tutorial:
 
     1. [Display the logo and title.](#newsheader-logo-and-title)
 
-       <img src="img/LogoTitle.png" width="140">
+       <img src="img/NewsHeaderLogoTitle.png" width="140">
 
     1. [Display the nav links.](#newsheader-nav)
 
-       <img src="img/Nav.png" width="453">
+       <img src="img/NewsHeaderNav.png" width="453">
 
     1. [Display the login link.](#newsheader-login)
 
-       <img src="img/Login.png" width="530">
+       <img src="img/NewsHeaderLogin.png" width="530">
 
  1. NewsList component
 
     <img src="img/NewsList@2x.png" width="532">
+
+    1. [Display the header and items.](#newslist-header-and-items)
+
+       <img src="img/NewsListHeaderItems.png" width="270">
+
+    1. [Display the more link.](#newslist-more)
+
+       <img src="img/NewsListMore.png" width="98">
+
  1. [Display live data](#hacker-news-api)
 
     During development, we use static data from the /json directory.
@@ -122,7 +133,8 @@ NewsItem Title
     }).then(function (items) {
       // Log the data so we can inspect it in the developer console.
       console.log('items', items);
-      React.render(<NewsItem item={items[0]}/>, $('#content')[0]);
+      // Use a fake rank for now.
+      React.render(<NewsItem item={items[0]} rank={1}/>, $('#content')[0]);
     });
     ```
 
@@ -130,6 +142,7 @@ NewsItem Title
     ```
     .newsItem {
       color: #828282;
+      margin-top: 5px;
     }
 
     .newsItem-titleLink {
@@ -175,7 +188,7 @@ NewsItem Title
 
  1. Refresh the browser. You should see the following.
 
-    <img src="img/Title.png" width="110">
+    <img src="img/NewsItemTitle.png" width="110">
 
     <img src="img/DeveloperConsole.png" width="274">
 
@@ -217,7 +230,7 @@ NewsItem Domain
 
  1. Refresh the browser. You should see the following.
 
-    <img src="img/Domain.png" width="213">
+    <img src="img/NewsItemDomain.png" width="213">
 
 [Back to top](#react-hn)
 
@@ -231,7 +244,7 @@ NewsItem Subtext
       ...
       getCommentLink: function () {
         var commentText = 'discuss';
-        if (this.props.item.kids.length) {
+        if (this.props.item.kids && this.props.item.kids.length) {
           commentText = this.props.item.kids.length + ' comments';
         }
 
@@ -285,20 +298,20 @@ NewsItem Subtext
 
  1. Refresh the browser. You should see the following.
 
-    <img src="img/Subtext.png" width="268">
+    <img src="img/NewsItemSubtext.png" width="268">
 
 [Back to top](#react-hn)
 
 NewsItem Rank and Vote
 ---
- 1. Update the JS. We use a fake rank for now.
+ 1. Update the JS.
      ```
     var NewsItem = React.createClass({
       ...
       getRank: function () {
         return (
           <div className="newsItem-rank">
-            1.
+            {this.props.rank}.
           </div>
         );
       },
@@ -354,7 +367,7 @@ NewsItem Rank and Vote
 
  1. Refresh the browser. You should see the following.
 
-    <img src="img/RankVote.png" width="297">
+    <img src="img/NewsItemRankVote.png" width="297">
 
 [Back to top](#react-hn)
 
@@ -461,7 +474,7 @@ NewsHeader Logo and Title
 
  1. Visit [http://localhost:8888/html/NewsHeader.html](http://localhost:8888/html/NewsHeader.html). You should see the following.
 
-    <img src="img/LogoTitle.png" width="140">
+    <img src="img/NewsHeaderLogoTitle.png" width="140">
 
 [Back to top](#react-hn)
 
@@ -538,7 +551,7 @@ NewsHeader Nav
 
  1. Refresh the browser. You should see the following.
 
-    <img src="img/Nav.png" width="453">
+    <img src="img/NewsHeaderNav.png" width="453">
 
 [Back to top](#react-hn)
 
@@ -575,12 +588,150 @@ NewsHeader Login
 
  1. Refresh the browser. You should see the following.
 
-    <img src="img/Login.png" width="530">
+    <img src="img/NewsHeaderLogin.png" width="530">
 
 [Back to top](#react-hn)
 
-NewsList
+NewsList Header and Items
 ---
+ 1. Create a new JS file: /js/NewsList.js.
+    ```
+    var _ = require('lodash');
+    var $ = require('jquery');
+    var NewsHeader = require('./NewsHeader');
+    var NewsItem = require('./NewsItem');
+    var React = require('react/addons');
+
+    var NewsList = React.createClass({
+      componentWillMount: function () {
+        $.ajax({
+          url: '/json/items.json',
+          dataType: 'json'
+        }).then(function (items) {
+          this.setState({items: items});
+        }.bind(this));
+      },
+
+      getInitialState: function () {
+        return {
+          items: []
+        };
+      },
+
+      render: function () {
+        return (
+          <div className="newsList">
+            <NewsHeader/>
+            <div className="newsList-newsItems">
+              {_.map(this.state.items, function (item, index) {
+                return <NewsItem key={item.id} item={item} rank={index + 1}/>;
+              }.bind(this))}
+            </div>
+          </div>
+        );
+      }
+    });
+
+    module.exports = NewsList;
+    ```
+
+ 1. Create a new JS file: /js/app.js.
+    ```
+    var $ = require('jquery');
+    var NewsList = require('./NewsList');
+    var React = require('react');
+
+    React.render(<NewsList/>, $('#content')[0]);
+    ```
+
+ 1. Create a new CSS file: /js/NewsList.css.
+    ```
+    .newsList {
+      background: #f6f6ef;
+      margin-left: auto;
+      margin-right: auto;
+      width: 85%;
+    }
+    ```
+
+ 1. Create a new HTML file: /html/app.html.
+    ```
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Hacker News</title>
+        <link href="/css/NewsHeader.css" rel="stylesheet">
+        <link href="/css/NewsItem.css" rel="stylesheet">
+        <link href="/css/NewsList.css" rel="stylesheet">
+        <link href="/css/app.css" rel="stylesheet">
+      </head>
+      <body>
+        <div id="content"></div>
+        <script src="/build/js/app.js"></script>
+      </body>
+    </html>
+    ```
+
+ 1. Start Watchify.
+     ```
+    watchify -v -o build/js/app.js js/app.js
+    ```
+
+ 1. Start the HTTP server if necessary.
+    ```
+    python -m SimpleHTTPServer 8888
+    ```
+
+ 1. Refresh the browser. You should see the following.
+
+    <img src="img/NewsListHeaderItems.png" width="270">
+
+[Back to top](#react-hn)
+
+NewsList More
+---
+ 1. Update the JS.
+    ```
+    var NewsHeader = React.createClass({
+      ...
+      getMore: function () {
+        return (
+          <div className="newsList-more">
+            <a className="newsList-moreLink" href="https://news.ycombinator.com/news?p=2">More</a>
+          </div>
+        );
+      },
+      ...
+      render: function () {
+        return (
+          <div className="newsList">
+            ...
+            {this.getMore()}
+          </div>
+        );
+      }
+    ```
+
+ 1. Update the CSS.
+    ```
+    .newsList-more {
+      margin-left: 40px; /* matches NewsItem rank and vote */
+      margin-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .newsList-moreLink {
+      color: black;
+      font-size: 10pt;
+      text-decoration: none;
+    }
+    ```
+
+ 1. Refresh the browser. You should see the following.
+
+    <img src="img/NewsListMore.png" width="98">
+
+[Back to top](#react-hn)
 
 Hacker News API
 ---

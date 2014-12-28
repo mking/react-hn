@@ -2,6 +2,7 @@
   align-items: baseline;
   color: #828282;
   display: flex;
+  margin-top: 5px;
 }
 
 .newsItem-domain {

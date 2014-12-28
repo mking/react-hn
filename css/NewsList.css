@@ -1,0 +1,18 @@
+.newsList {
+  background: #f6f6ef;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+}
+
+.newsList-more {
+  margin-left: 40px; /* matches NewsItem rank and vote */
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+.newsList-moreLink {
+  color: black;
+  font-size: 10pt;
+  text-decoration: none;
+}

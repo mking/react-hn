@@ -6,7 +6,7 @@ var url = require('url');
 var NewsItem = React.createClass({
   getCommentLink: function () {
     var commentText = 'discuss';
-    if (this.props.item.kids.length) {
+    if (this.props.item.kids && this.props.item.kids.length) {
       commentText = this.props.item.kids.length + ' comments';
     }
 
@@ -22,7 +22,7 @@ var NewsItem = React.createClass({
   getRank: function () {
     return (
       <div className="newsItem-rank">
-        1.
+        {this.props.rank}.
       </div>
     );
   },
