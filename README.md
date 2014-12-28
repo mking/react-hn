@@ -6,9 +6,9 @@ This is a visual React tutorial. This tutorial should give you a feel for "growi
 
 This tutorial has five parts:
 
- 1. <span id="setup-toc">[Setup](#setup)</span>
+ 1. <a name="setup-toc">[Setup](#setup)</a>
 
- 1. <span id="newsitem">NewsItem component</span>
+ 1. <a name="newsitem">NewsItem component</a>
 
     <img src="img/NewsItem@2x.png" width="532">
 
@@ -28,7 +28,7 @@ This tutorial has five parts:
 
         <img src="img/NewsItemRankVote.png" width="297">
 
- 1. <span id="newsheader">NewsHeader component</span>
+ 1. <a name="newsheader">NewsHeader component</a>
 
     <img src="img/NewsHeader@2x.png" width="532">
 
@@ -44,7 +44,7 @@ This tutorial has five parts:
 
        <img src="img/NewsHeaderLogin.png" width="530">
 
- 1. <span id="newslist">NewsList component</span>
+ 1. <a name="newslist">NewsList component</a>
 
     <img src="img/NewsList@2x.png" width="532">
 
@@ -56,7 +56,7 @@ This tutorial has five parts:
 
        <img src="img/NewsListMore.png" width="136">
 
- 1. <span id="hacker-news-api-toc">[Display live data](#hacker-news-api)</span>
+ 1. <a name="hacker-news-api-toc">[Display live data](#hacker-news-api)</a>
 
     > Note: During development, we use static data from the /json directory.
 
