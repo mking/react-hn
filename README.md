@@ -12,7 +12,7 @@ There are five parts to this tutorial:
 
  2. Build the NewsItem
 
-    <img src="img/NewsItem.png" width="532">
+    <img src="img/NewsItem.png" width="266">
 
      1. [Display the title.](#newsitem-title)
 
@@ -32,10 +32,10 @@ There are five parts to this tutorial:
 
  3. [Build the NewsHeader](#newsheader)
 
-    <img src="img/NewsHeader.png" width="532">
+    <img src="img/NewsHeader.png" width="266">
  4. [Build the NewsList](#newslist)
 
-    <img src="img/NewsList.png" width="532">
+    <img src="img/NewsList.png" width="266">
  5. [Display live data](#hacker-news-api)
 
     During development, we use static data from the /json directory.
