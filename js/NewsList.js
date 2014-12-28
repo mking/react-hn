@@ -5,11 +5,26 @@ var NewsItem = require('./NewsItem');
 var React = require('react/addons');
 
 var NewsList = React.createClass({
-  componentWillMount: function () {
+  componentDidMount: function () {
+    if (this.props.items) {
+      return;
+    }
+
     $.ajax({
-      url: '/json/items.json',
+      url: 'https://hacker-news.firebaseio.com/v0/topstories.json',
       dataType: 'json'
-    }).then(function (items) {
+    }).then(function (stories) {
+      var detailDeferreds = _.map(stories.slice(0, 30), function (itemId) {
+        return $.ajax({
+          url: 'https://hacker-news.firebaseio.com/v0/item/' + itemId + '.json',
+          dataType: 'json'
+        });
+      });
+      return $.when.apply($, detailDeferreds);
+    }).then(function () {
+      var items = _.map(arguments, function (argument) {
+        return argument[0];
+      });
       this.setState({items: items});
     }.bind(this));
   },
@@ -33,7 +48,7 @@ var NewsList = React.createClass({
       <div className="newsList">
         <NewsHeader/>
         <div className="newsList-items">
-          {_.map(this.state.items, function (item, index) {
+          {_.map(this.props.items || this.state.items, function (item, index) {
             return <NewsItem key={item.id} item={item} rank={index + 1}/>;
           }.bind(this))}
         </div>
@@ -44,19 +59,3 @@ var NewsList = React.createClass({
 });
 
 module.exports = NewsList;
-
-
-/*Promise.resolve($.ajax({
-  url: this.props.endpoint + '/v0/topstories.json',
-  dataType: 'json'
-})).then((allStories) => {
-  var stories = allStories.slice(0, 30);
-  return Promise.all(_.map(stories, (story) => {
-    return Promise.resolve($.ajax({
-      url: this.props.endpoint + '/v0/item/' + story + '.json',
-      dataType: 'json'
-    }));
-  }));
-}).then((stories) => {
-  console.log(JSON.stringify(stories));
-});*/

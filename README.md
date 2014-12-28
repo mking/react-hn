@@ -186,7 +186,7 @@ NewsItem Title
     python -m SimpleHTTPServer 8888
     ```
 
- 1. Refresh the browser. You should see the following.
+ 1. Visit [http://localhost:8888/html/NewsItem.html](http://localhost:8888/html/NewsItem.html). You should see the following.
 
     <img src="img/NewsItemTitle.png" width="110">
 
@@ -603,27 +603,12 @@ NewsList Header and Items
     var React = require('react/addons');
 
     var NewsList = React.createClass({
-      componentWillMount: function () {
-        $.ajax({
-          url: '/json/items.json',
-          dataType: 'json'
-        }).then(function (items) {
-          this.setState({items: items});
-        }.bind(this));
-      },
-
-      getInitialState: function () {
-        return {
-          items: []
-        };
-      },
-
       render: function () {
         return (
           <div className="newsList">
             <NewsHeader/>
             <div className="newsList-newsItems">
-              {_.map(this.state.items, function (item, index) {
+              {_.map(this.props.items, function (item, index) {
                 return <NewsItem key={item.id} item={item} rank={index + 1}/>;
               }.bind(this))}
             </div>
@@ -635,13 +620,17 @@ NewsList Header and Items
     module.exports = NewsList;
     ```
 
- 1. Create a new JS file: /js/app.js.
+ 1. Create a new JS file: /js/NewsListTest.js.
     ```
     var $ = require('jquery');
     var NewsList = require('./NewsList');
     var React = require('react');
 
-    React.render(<NewsList/>, $('#content')[0]);
+    $.ajax({
+      url: '/json/items.json'
+    }).then(function (items) {
+      React.render(<NewsList items={items}/>, $('#content')[0]);
+    });
     ```
 
  1. Create a new CSS file: /js/NewsList.css.
@@ -654,7 +643,7 @@ NewsList Header and Items
     }
     ```
 
- 1. Create a new HTML file: /html/app.html.
+ 1. Create a new HTML file: /html/NewsList.html.
     ```
     <!DOCTYPE html>
     <html>
@@ -667,14 +656,14 @@ NewsList Header and Items
       </head>
       <body>
         <div id="content"></div>
-        <script src="/build/js/app.js"></script>
+        <script src="/build/js/NewsListTest.js"></script>
       </body>
     </html>
     ```
 
  1. Start Watchify.
      ```
-    watchify -v -o build/js/app.js js/app.js
+    watchify -v -o build/js/NewsListTest.js js/NewsListTest.js
     ```
 
  1. Start the HTTP server if necessary.
@@ -682,7 +671,7 @@ NewsList Header and Items
     python -m SimpleHTTPServer 8888
     ```
 
- 1. Refresh the browser. You should see the following.
+ 1. Visit [http://localhost:8888/html/NewsList.html](http://localhost:8888/html/NewsList.html). You should see the following.
 
     <img src="img/NewsListHeaderItems.png" width="270">
 
@@ -735,3 +724,88 @@ NewsList More
 
 Hacker News API
 ---
+ 1. Update /js/NewsList.js.
+    ```
+    var NewsList = React.createClass({
+      ...
+      componentDidMount: function () {
+        if (this.props.items) {
+          return;
+        }
+
+        // Get the top item ids
+        $.ajax({
+          url: 'https://hacker-news.firebaseio.com/v0/topstories.json',
+          dataType: 'json'
+        }).then(function (stories) {
+          // Get the item details in parallel
+          var detailDeferreds = _.map(stories.slice(0, 30), function (itemId) {
+            return $.ajax({
+              url: 'https://hacker-news.firebaseio.com/v0/item/' + itemId + '.json',
+              dataType: 'json'
+            });
+          });
+          return $.when.apply($, detailDeferreds);
+        }).then(function () {
+          // Extract the response JSON
+          var items = _.map(arguments, function (argument) {
+            return argument[0];
+          });
+          this.setState({items: items});
+        }.bind(this));
+      },
+      ...
+      getInitialState: function () {
+        return {
+          items: []
+        };
+      },
+      ...
+      render: function () {
+        ...
+        {_.map(this.props.items || this.state.items, function () {
+          ...
+        }.bind(this)}
+        ...
+      }
+    });
+    ```
+
+ 1. Create a new JS file: /js/app.js.
+    ```
+    var $ = require('jquery');
+    var NewsList = require('./NewsList');
+    var React = require('react');
+
+    React.render(<NewsList/>, $('#content')[0]);
+    ```
+
+ 1. Create a new HTML file: /html/app.html.
+    ```
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Hacker News</title>
+        <link href="/css/NewsHeader.css" rel="stylesheet">
+        <link href="/css/NewsItem.css" rel="stylesheet">
+        <link href="/css/NewsList.css" rel="stylesheet">
+        <link href="/css/app.css" rel="stylesheet">
+      </head>
+      <body>
+        <div id="content"></div>
+        <script src="/build/js/app.js"></script>
+      </body>
+    </html>
+    ```
+
+ 1. Start Watchify.
+     ```
+    watchify -v -o build/js/app.js js/app.js
+    ```
+
+ 1. Start the HTTP server if necessary.
+    ```
+    python -m SimpleHTTPServer 8888
+    ```
+
+ 1. Visit [http://localhost:8888/html/app.html](http://localhost:8888/html/app.html). You should see a live version of the Hacker News front page.
