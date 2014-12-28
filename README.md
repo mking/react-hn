@@ -125,7 +125,7 @@ NewsItem
     python -m SimpleHTTPServer 8888
     ```
 
-    Visit [http://localhost:8888/html/NewsItem.html]. You should see "NewsItem test".
+    Visit [http://localhost:8888/html/NewsItem.html](http://localhost:8888/html/NewsItem.html). You should see "NewsItem test".
 
     If you change the text, save the JS file, and refresh the browser, you should be able to see this change reflected in the page.
 
