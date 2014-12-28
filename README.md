@@ -4,57 +4,21 @@ This is a visual React tutorial. This tutorial should give you a feel for "growi
 
 This tutorial has five parts:
 
- 1. <a name="setup-toc" href="#setup">Setup</a>
+ 1. [Setup](#setup)
 
- 1. <p name="newsitem">NewsItem component</p>
+ 1. [NewsItem component](#newsitem)
 
     <img src="img/NewsItem@2x.png" width="532">
 
-     1. [Display the title.](#newsitem-title)
-
-        <img src="img/NewsItemTitle.png" width="110">
-
-     1. [Display the domain.](#newsitem-domain)
-
-        <img src="img/NewsItemDomain.png" width="213">
-
-     1. [Display the subtext.](#newsitem-subtext)
-
-        <img src="img/NewsItemSubtext.png" width="268">
-
-     1. [Display the rank and vote.](#newsitem-rank-and-vote)
-
-        <img src="img/NewsItemRankVote.png" width="297">
-
- 1. <p name="newsheader">NewsHeader component</p>
+ 1. [NewsHeader component](#newsheader)
 
     <img src="img/NewsHeader@2x.png" width="532">
 
-    1. [Display the logo and title.](#newsheader-logo-and-title)
-
-       <img src="img/NewsHeaderLogoTitle.png" width="140">
-
-    1. [Display the nav links.](#newsheader-nav)
-
-       <img src="img/NewsHeaderNav.png" width="453">
-
-    1. [Display the login link.](#newsheader-login)
-
-       <img src="img/NewsHeaderLogin.png" width="530">
-
- 1. <p name="newslist">NewsList component</p>
+ 1. [NewsList component](#newslist)
 
     <img src="img/NewsList@2x.png" width="532">
 
-    1. [Display the header and items.](#newslist-header-and-items)
-
-       <img src="img/NewsListHeaderItems.png" width="270">
-
-    1. [Display the more link.](#newslist-more)
-
-       <img src="img/NewsListMore.png" width="136">
-
- 1. <a name="hacker-news-api-toc" href="#hacker-news-api">Display live data</a>
+ 1. [Display live data from the Hacker News API](#hacker-news-api)
 
 > Note: Because there is only so much we can do in one tutorial, event handling (not needed for the HN front page) and Flux are out of scope.
 
@@ -98,7 +62,29 @@ Setup
     npm install -g browserify watchify
     ```
 
-[Next](#newsitem) &middot; [Table of Contents](#setup-toc)
+[Next](#newsitem)
+
+---
+
+NewsItem
+---
+ 1. [Display the title.](#newsitem-title)
+
+    <img src="img/NewsItemTitle.png" width="110">
+
+ 1. [Display the domain.](#newsitem-domain)
+
+    <img src="img/NewsItemDomain.png" width="213">
+
+ 1. [Display the subtext.](#newsitem-subtext)
+
+    <img src="img/NewsItemSubtext.png" width="268">
+
+ 1. [Display the rank and vote.](#newsitem-rank-and-vote)
+
+    <img src="img/NewsItemRankVote.png" width="297">
+
+[Previous](#setup) &middot; [Next](#newsitem-title)
 
 ---
 
@@ -192,7 +178,7 @@ NewsItem Title
 
     <img src="img/DeveloperConsole.png" width="274">
 
-[Previous](#setup) &middot; [Next](#newsitem-domain) &middot; [Table of Contents](#newsitem)
+[Previous](#newsitem) &middot; [Next](#newsitem-domain)
 
 NewsItem Domain
 ---
@@ -230,7 +216,7 @@ NewsItem Domain
 
     <img src="img/NewsItemDomain.png" width="213">
 
-[Previous](#newsitem-title) &middot; [Next](#newsitem-subtext) &middot; [Table of Contents](#newsitem)
+[Previous](#newsitem-title) &middot; [Next](#newsitem-subtext)
 
 ---
 
@@ -301,7 +287,7 @@ NewsItem Subtext
 
     <img src="img/NewsItemSubtext.png" width="268">
 
-[Previous](#newsitem-domain) &middot; [Next](#newsitem-rank-and-vote) &middot; [Table of Contents](#newsitem)
+[Previous](#newsitem-domain) &middot; [Next](#newsitem-rank-and-vote)
 
 ---
 
@@ -375,7 +361,25 @@ NewsItem Rank and Vote
 
     <img src="img/NewsItem@2x.png" width="532">
 
-[Previous](#newsitem-subtext) &middot; [Next](#newsheader) &middot; [Table of Contents](#newsitem)
+[Previous](#newsitem-subtext) &middot; [Next](#newsheader)
+
+---
+
+NewsHeader
+---
+1. [Display the logo and title.](#newsheader-logo-and-title)
+
+   <img src="img/NewsHeaderLogoTitle.png" width="140">
+
+1. [Display the nav links.](#newsheader-nav)
+
+   <img src="img/NewsHeaderNav.png" width="453">
+
+1. [Display the login link.](#newsheader-login)
+
+   <img src="img/NewsHeaderLogin.png" width="530">
+
+[Previous](#newsitem-rank-and-vote) &middot; [Next](#newsheader-logo-and-title)
 
 ---
 
@@ -484,7 +488,7 @@ NewsHeader Logo and Title
 
     <img src="img/NewsHeaderLogoTitle.png" width="140">
 
-[Previous](#newsitem) &middot; [Next](#newsheader-nav) &middot; [Table of Contents](#newsheader)
+[Previous](#newsheader) &middot; [Next](#newsheader-nav)
 
 ---
 
@@ -563,7 +567,7 @@ NewsHeader Nav
 
     <img src="img/NewsHeaderNav.png" width="453">
 
-[Previous](#newsheader-logo-and-title) &middot; [Next](#newsheader-login) &middot; [Table of Contents](#newsheader)
+[Previous](#newsheader-logo-and-title) &middot; [Next](#newsheader-login)
 
 ---
 
@@ -606,7 +610,21 @@ NewsHeader Login
 
     <img src="img/NewsHeader@2x.png" width="532">
 
-[Previous](#newsheader-nav) &middot; [Next](#newslist) &middot; [Table of Contents](#newsheader)
+[Previous](#newsheader-nav) &middot; [Next](#newslist)
+
+---
+
+NewsList
+---
+1. [Display the header and items.](#newslist-header-and-items)
+
+   <img src="img/NewsListHeaderItems.png" width="270">
+
+1. [Display the more link.](#newslist-more)
+
+   <img src="img/NewsListMore.png" width="136">
+
+[Previous](#newsheader-login) &middot; [Next](#newslist-header-and-items)
 
 ---
 
@@ -693,7 +711,7 @@ NewsList Header and Items
 
     <img src="img/NewsListHeaderItems.png" width="270">
 
-[Previous](#newsheader) &middot; [Next](#newslist-more) &middot; [Table of Contents](#newslist)
+[Previous](#newslist) &middot; [Next](#newslist-more)
 
 ---
 
@@ -744,7 +762,7 @@ NewsList More
 
     <img src="img/NewsList@2x.png" width="532">
 
-[Previous](#newslist-header-and-items) &middot; [Next](#hacker-news-api-toc) &middot; [Table of Contents](#newslist)
+[Previous](#newslist-header-and-items) &middot; [Next](#hacker-news-api)
 
 ---
 
@@ -838,4 +856,4 @@ Hacker News API
 
     You have now implemented the [HN front page](https://news.ycombinator.com) in React.
 
-[Previous](#newslist) &middot; [Table of Contents](#hacker-news-api-toc)
+[Previous](#newslist-more)

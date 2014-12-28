@@ -3,7 +3,6 @@
 TODO
 ---
 - mking.github.io/react-hn.
-- "Next step" link
 
 Run Through Checklist
 ---
@@ -11,7 +10,7 @@ The table of contents should be visual. This makes it easy to understand how all
 
 Instruction blocks should be single level lists. This is a readability issue.
 
-Instruction blocks should have previous/next/toc links.
+Instruction blocks should have previous/next links.
 
 Instruction blocks should be separated by horizontal rules.
 
@@ -19,7 +18,7 @@ Instruction blocks should end with a "check your work" screenshot.
 
 Code excerpts should not have leading, trailing, or unnecessary ellipses.
 
-Links should work (table of contents, previous/next/toc links, localhost links).
+Links should work (table of contents, previous/next links, localhost links).
 
 Images should be in sync.
 
