@@ -23,24 +23,24 @@ There are four parts to this tutorial:
 
 NewsItem
 ---
-> Note: You will be building this app from scratch. This repo provides solutions for each part of the tutorial, but it isn't necessary to use any of the code here. I think it's easier to learn when you do all the steps yourself, rather than having some of them done for you.
+> Note: You will be building the app from scratch. This repo provides solutions for each part of the tutorial, but it isn't necessary to use any of the code here. I think it's easier to learn when you do all the steps yourself, rather than having some of them done for you.
 
  1. Create the initial project.
 
-    Create a directory for your project (hn) and cd into it. You will be doing your work out of this directory.
-    ```
-    mkdir hn
-    cd hn
-    ```
+     a. Create a directory for your project (hn) and cd into it. You will be doing your work out of this directory.
+        ```
+        mkdir hn
+        cd hn
+        ```
 
-    Create the project directory structure.
-    ```
-    mkdir -p {build/js,css,html,img,js,json}
-    ```
+     b. Create the project directory structure.
+        ```
+        mkdir -p {build/js,css,html,img,js,json}
+        ```
 
-    [Download the sample data](https://raw.githubusercontent.com/mking/react-hn/master/json/items.json) into /json.
+     c. [Download the sample data](https://raw.githubusercontent.com/mking/react-hn/master/json/items.json) into /json.
 
-    Download [y18.gif](https://news.ycombinator.com/y18.gif) and [grayarrow2x.gif](https://news.ycombinator.com/grayarrow2x.gif) into /img.
+     d. Download [y18.gif](https://news.ycombinator.com/y18.gif) and [grayarrow2x.gif](https://news.ycombinator.com/grayarrow2x.gif) into /img.
 
  2. Create the initial NewsItem component.
 
