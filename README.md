@@ -156,7 +156,7 @@ NewsItem
 
         <img src="/img/NoBindStacktrace.png" width="50%">
 
-        `setState` is undefined. This is because `this` is unavailable within the AJAX callback. To fix this, add a bind. By using bind, the value of `this` inside the callback is the same as the value of `this` inside the React class method.
+        `setState` is undefined. This is because `this` is unavailable within the AJAX callback. To fix this, add a bind.
         ```
         }).then(function (items) {
           ...
