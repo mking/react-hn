@@ -98,7 +98,7 @@ Setup
     npm install -g browserify watchify
     ```
 
-[Back](#setup-toc) &middot; [Next](#newsitem)
+[Next](#newsitem) &middot; [Table of Contents](#setup-toc)
 
 ---
 
@@ -192,7 +192,7 @@ NewsItem Title
 
     <img src="img/DeveloperConsole.png" width="274">
 
-[Back](#newsitem) &middot; [Next](#newsitem-domain)
+[Previous](#setup) &middot; [Next](#newsitem-domain) &middot; [Table of Contents](#newsitem)
 
 NewsItem Domain
 ---
@@ -230,7 +230,7 @@ NewsItem Domain
 
     <img src="img/NewsItemDomain.png" width="213">
 
-[Back](#newsitem) &middot; [Next](#newsitem-subtext)
+[Previous](#newsitem-title) &middot; [Next](#newsitem-subtext) &middot; [Table of Contents](#newsitem)
 
 ---
 
@@ -301,7 +301,7 @@ NewsItem Subtext
 
     <img src="img/NewsItemSubtext.png" width="268">
 
-[Back](#newsitem) &middot; [Next](#newsitem-rank-and-vote)
+[Previous](#newsitem-subtext) &middot; [Next](#newsitem-rank-and-vote) &middot; [Table of Contents](#newsitem)
 
 ---
 
@@ -375,7 +375,7 @@ NewsItem Rank and Vote
 
     <img src="img/NewsItem@2x.png" width="532">
 
-[Back](#newsitem) &middot; [Next](#newsheader)
+[Previous](#newsitem-rank-and-vote) &middot; [Next](#newsheader) &middot; [Table of Contents](#newsitem)
 
 ---
 
@@ -484,7 +484,7 @@ NewsHeader Logo and Title
 
     <img src="img/NewsHeaderLogoTitle.png" width="140">
 
-[Back](#newsheader) &middot; [Next](#newsheader-nav)
+[Previous](#newsitem) &middot; [Next](#newsheader-nav) &middot; [Table of Contents](#newsheader)
 
 ---
 
@@ -563,7 +563,7 @@ NewsHeader Nav
 
     <img src="img/NewsHeaderNav.png" width="453">
 
-[Back](#newsheader) &middot; [Next](#newsheader-login)
+[Previous](#newsheader-logo-and-title) &middot; [Next](#newsheader-login) &middot; [Table of Contents](#newsheader)
 
 ---
 
@@ -606,7 +606,7 @@ NewsHeader Login
 
     <img src="img/NewsHeader@2x.png" width="532">
 
-[Back](#newsheader) &middot; [Next](#newslist)
+[Previous](#newsheader-login) &middot; [Next](#newslist) &middot; [Table of Contents](#newsheader)
 
 ---
 
@@ -693,7 +693,7 @@ NewsList Header and Items
 
     <img src="img/NewsListHeaderItems.png" width="270">
 
-[Back](#newslist) &middot; [Next](#newslist-more)
+[Previous](#newsheader) &middot; [Next](#newslist-more) &middot; [Table of Contents](#newslist)
 
 ---
 
@@ -744,7 +744,7 @@ NewsList More
 
     <img src="img/NewsList@2x.png" width="532">
 
-[Back](#newslist) &middot; [Next](#hacker-news-api-toc)
+[Previous](#newslist-header-and-items) &middot; [Next](#hacker-news-api-toc) &middot; [Table of Contents](#newslist)
 
 ---
 
@@ -838,4 +838,4 @@ Hacker News API
 
     You have now implemented the [HN front page](https://news.ycombinator.com) in React.
 
-[Back](#hacker-news-api-toc)
+[Previous](#newslist) &middot; [Table of Contents](#hacker-news-api-toc)
