@@ -72,15 +72,15 @@ NewsItem
 
     <img src="img/NewsItemTitle.png" width="110">
 
- 1. [Display the domain.](#newsitem-domain)
+ 1. [Add the domain.](#newsitem-domain)
 
     <img src="img/NewsItemDomain.png" width="213">
 
- 1. [Display the subtext.](#newsitem-subtext)
+ 1. [Add the subtext.](#newsitem-subtext)
 
     <img src="img/NewsItemSubtext.png" width="268">
 
- 1. [Display the rank and vote.](#newsitem-rank-and-vote)
+ 1. [Add the rank and vote.](#newsitem-rank-and-vote)
 
     <img src="img/NewsItemRankVote.png" width="297">
 
@@ -371,11 +371,11 @@ NewsHeader
 
    <img src="img/NewsHeaderLogoTitle.png" width="140">
 
-1. [Display the nav links.](#newsheader-nav)
+1. [Add the nav links.](#newsheader-nav)
 
    <img src="img/NewsHeaderNav.png" width="453">
 
-1. [Display the login link.](#newsheader-login)
+1. [Add the login link.](#newsheader-login)
 
    <img src="img/NewsHeaderLogin.png" width="530">
 
@@ -620,7 +620,7 @@ NewsList
 
    <img src="img/NewsListHeaderItems.png" width="270">
 
-1. [Display the more link.](#newslist-more)
+1. [Add the more link.](#newslist-more)
 
    <img src="img/NewsListMore.png" width="136">
 
