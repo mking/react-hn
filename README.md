@@ -2,7 +2,7 @@ React HN
 ===
 This tutorial will show you how to build [the Hacker News front page in React](https://mking.github.io/react-hn). We are going to build small, self-contained components, and then we will compose them (like Lego bricks) to get the final result.
 
-Technologies learned: React, Browserify
+Technologies learned: React (building a UI, troubleshooting common errors), Browserify
 
 Background required: basic HTML/CSS/JS
 
@@ -10,13 +10,13 @@ There are four parts to this tutorial:
 
  1. [Build the NewsItem](#newsitem)
 
-    <img src="img/NewsItem@2x.png" width="532">
+    <img src="img/NewsItem.png">
  2. [Build the NewsHeader](#newsheader)
 
-    <img src="img/NewsHeader@2x.png" width="532">
+    <img src="img/NewsHeader.png">
  3. [Build the NewsList](#newslist)
 
-    <img src="img/NewsList@2x.png" width="532">
+    <img src="img/NewsList.png">
  4. [Display live data](#hacker-news-api)
 
     During development, we use static data from the /json directory.
@@ -106,7 +106,7 @@ NewsItem
      3. Configure Browserify in /package.json.
         ```
         {
-          ...,
+          ...
           "browserify": {
             "transform": [
               ["reactify"]
@@ -129,17 +129,84 @@ NewsItem
 
     If you change the text, save the JS file, and refresh the browser, you should be able to see this change reflected in the page.
 
+ 5. Load initial data
+
+     1. Load data in componentWillMount. I normally log the data so I can inspect the returned data structure in the developer console.
+        ```
+        var NewsItem = React.createClass({
+          ...
+          componentWillMount: function () {
+            $.ajax({
+              url: '/json/items.json'
+            }).then(function (items) {
+              console.log('items', items);
+              this.setState({item: items[0]});
+            });
+          },
+          ...
+        ```
+
+        <img src="/img/DeveloperConsole.png">
+
+     2. Refresh the browser and check for items in the console. You should see the following error:
+
+        <img src="/img/NoBind.png">
+
+        If you click on the stacktrace link, you will see the problem.
+
+        <img src="/img/NoBindStacktrace.png">
+
+        `setState` is undefined. This is because `this` is unavailable within the AJAX callback. To fix this, add a bind. By using bind, the value of `this` inside the callback is the same as the value of `this` inside the React class method.
+        ```
+        }).then(function (items) {
+          ...
+        }.bind(this));
+        ```
+
+        Refresh the browser and check the console for errors. You should not see any more errors.
+
+     3. Display the data.
+        ```
+        render: function () {
+          return (
+            <div className="newsItem">
+              {this.state.item.title}
+            </div>
+          );
+        }
+        ```
+
+     4. Refresh the browser and check the console for errors. You should see the following error:
+
+        <img src="/img/NoState.png">
+
+        We get this error because `this.state` is null. To enable state, we need to set an initial state for the component. We will also render nothing if the data is not yet loaded.
+        ```
+        getInitialState: function () {
+          return {};
+        },
+
+        render: function () {
+          if (!this.state.item) {
+            return null;
+          }
+          ...
+        }
+        ```
+
+        You should see the title text for the first item ("Look, no hands").
+
 NewsHeader
 ---
-<img src="img/NewsList@2x.png" width="532" height="1000">
+<img src="img/NewsList.png" width="532" height="1000">
 
 NewsList
 ---
-<img src="img/NewsList@2x.png" width="532" height="1000">
+<img src="img/NewsList.png" width="532" height="1000">
 
 Hacker News API
 ---
-<img src="img/NewsList@2x.png" width="532" height="1000">
+<img src="img/NewsList.png" width="532" height="1000">
 
 python -m SimpleHTTPServer 8888
 watchify -v -o build/js/app.js js/app.js
