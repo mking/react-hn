@@ -89,10 +89,7 @@ Setup
     npm install -g browserify watchify
     ```
 
- 1. Run Watchify. I normally run this in a separate terminal tab.
-    ```
-    watchify -v -o build/js/NewsItem.js js/NewsItem.js
-    ```
+[Back to top](#react-hn)
 
 NewsItem Title
 ---
@@ -151,7 +148,7 @@ NewsItem Title
     </html>
     ```
 
- 1. Start Watchify.
+ 1. Start Watchify. This compiles your React (JSX) components into ordinary JavaScript.
     ```
     watchify -v -o build/js/NewsHeader.js js/NewsHeader.js
     ```
@@ -166,6 +163,8 @@ NewsItem Title
     <img src="img/Title.png" width="107">
 
     <img src="img/DeveloperConsole.png" width="274">
+
+[Back to top](#react-hn)
 
 NewsItem Title and Domain
 ---
@@ -218,6 +217,8 @@ NewsItem Title and Domain
  1. Refresh the browser. You should see the following.
 
     <img src="img/TitleDomain.png" width="213">
+
+[Back to top](#react-hn)
 
 NewsItem Subtext
 ---
@@ -285,6 +286,8 @@ NewsItem Subtext
 
     <img src="img/Subtext.png" width="268">
 
+[Back to top](#react-hn)
+
 NewsItem Rank and Vote
 ---
  1. Update the JS. We use a fake rank for now.
@@ -351,6 +354,8 @@ NewsItem Rank and Vote
  1. Refresh the browser. You should see the following.
 
     <img src="img/RankVote.png" width="297">
+
+[Back to top](#react-hn)
 
 NewsHeader Logo and Title
 ---
@@ -451,6 +456,8 @@ NewsHeader Logo and Title
 
     <img src="img/LogoTitle.png" width="140">
 
+[Back to top](#react-hn)
+
 NewsHeader Nav
 ---
  1. Update the JS.
@@ -526,6 +533,8 @@ NewsHeader Nav
 
     <img src="img/Nav.png" width="453">
 
+[Back to top](#react-hn)
+
 NewsHeader Login
 ---
  1. Update the JS.
@@ -560,6 +569,8 @@ NewsHeader Login
  1. Refresh the browser. You should see the following.
 
     <img src="img/Login.png" width="530">
+
+[Back to top](#react-hn)
 
 NewsList
 ---
