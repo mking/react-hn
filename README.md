@@ -98,7 +98,7 @@ Setup
     npm install -g browserify watchify
     ```
 
-[Next](#newsitem) &middot; [Up](#setup-toc)
+[Back](#setup-toc) &middot; [Next](#newsitem)
 
 ---
 
@@ -192,7 +192,7 @@ NewsItem Title
 
     <img src="img/DeveloperConsole.png" width="274">
 
-[Up](#newsitem) - [Next](#newsitem-domain)
+[Back](#newsitem) &middot; [Next](#newsitem-domain)
 
 NewsItem Domain
 ---
@@ -230,7 +230,9 @@ NewsItem Domain
 
     <img src="img/NewsItemDomain.png" width="213">
 
-[Up](#newsitem) - [Next](#newsitem-subtext)
+[Back](#newsitem) &middot; [Next](#newsitem-subtext)
+
+---
 
 NewsItem Subtext
 ---
@@ -299,7 +301,9 @@ NewsItem Subtext
 
     <img src="img/NewsItemSubtext.png" width="268">
 
-[Up](#newsitem) - [Next](#newsitem-rank-and-vote)
+[Back](#newsitem) &middot; [Next](#newsitem-rank-and-vote)
+
+---
 
 NewsItem Rank and Vote
 ---
@@ -371,7 +375,9 @@ NewsItem Rank and Vote
 
     <img src="img/NewsItem@2x.png" width="532">
 
-[Up](#newsitem) - [Next](#newsheader)
+[Back](#newsitem) &middot; [Next](#newsheader)
+
+---
 
 NewsHeader Logo and Title
 ---
@@ -478,7 +484,9 @@ NewsHeader Logo and Title
 
     <img src="img/NewsHeaderLogoTitle.png" width="140">
 
-[Up](#newsheader) - [Next](#newsheader-nav)
+[Back](#newsheader) &middot; [Next](#newsheader-nav)
+
+---
 
 NewsHeader Nav
 ---
@@ -555,7 +563,9 @@ NewsHeader Nav
 
     <img src="img/NewsHeaderNav.png" width="453">
 
-[Up](#newsheader) - [Next](#newsheader-login)
+[Back](#newsheader) &middot; [Next](#newsheader-login)
+
+---
 
 NewsHeader Login
 ---
@@ -596,7 +606,9 @@ NewsHeader Login
 
     <img src="img/NewsHeader@2x.png" width="532">
 
-[Up](#newsheader) - [Next](#newslist)
+[Back](#newsheader) &middot; [Next](#newslist)
+
+---
 
 NewsList Header and Items
 ---
@@ -681,7 +693,9 @@ NewsList Header and Items
 
     <img src="img/NewsListHeaderItems.png" width="270">
 
-[Up](#newslist) - [Next](#newslist-more)
+[Back](#newslist) &middot; [Next](#newslist-more)
+
+---
 
 NewsList More
 ---
@@ -730,7 +744,9 @@ NewsList More
 
     <img src="img/NewsList@2x.png" width="532">
 
-[Up](#newslist) - [Next](#hacker-news-api-toc)
+[Back](#newslist) &middot; [Next](#hacker-news-api-toc)
+
+---
 
 Hacker News API
 ---
@@ -822,4 +838,4 @@ Hacker News API
 
     You have now implemented the [HN front page](https://news.ycombinator.com) in React.
 
-[Up](#hacker-news-api-toc)
+[Back](#hacker-news-api-toc)
