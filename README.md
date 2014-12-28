@@ -44,7 +44,7 @@ NewsItem
 
  2. Create the initial NewsItem component.
 
-     1. Create the demo page (/html/NewsItem.html). This way, we can build the NewsItem component by itself, without requiring the full app.
+     1. Create the demo page (/html/NewsItem.html). This way, we can preview the NewsItem component by itself, without requiring the full app.
         ```
         <!DOCTYPE html>
         <html>
@@ -93,12 +93,17 @@ NewsItem
 
      2. Install Browserify, React, and tools.
         ```
+        # These dependencies are required for the running app.
         npm install --save react jquery lodash moment
+
+        # These dependencies are required for building the app.
         npm install --save-dev browserify watchify reactify
+
+        # These dependencies are globally installed command line tools.
         npm install -g browserify watchify
         ```
 
-     3. Configure Browserify in /package.json
+     3. Configure Browserify in /package.json.
         ```
         {
           ...,
@@ -110,7 +115,7 @@ NewsItem
         }
         ```
 
-     4. Run Watchify. We need Watchify in order to recompile JSX files whenever they change. I normally run Watchify in a separate terminal tab, and I normally use the `-v` flag so that I can see when files are recompiled.
+     4. Run Watchify. We need Watchify in order to recompile React components whenever they change. I normally run Watchify in a separate terminal tab, and I normally use the `-v` flag so that I can see when files are recompiled.
         ```
         watchify -v -o build/js/NewsItem.js js/NewsItem.js
         ```
@@ -119,6 +124,7 @@ NewsItem
     ```
     # Visit http://localhost:8888/html/NewsItem.html
     # You should see "NewsItem test".
+    # If you change the text, save the JS file, and refresh the browser, you should be able to see this change reflected in the page.
     python -m SimpleHTTPServer 8888
     ```
 
