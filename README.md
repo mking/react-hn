@@ -32,6 +32,8 @@ Setup
     cd hn
     ```
 
+    > Note: We will be building the project from scratch. The solution in this repo is only meant to be a reference.
+
  1. [Download the sample data](https://raw.githubusercontent.com/mking/react-hn/master/json/items.json) into /json.
 
  1. Download [y18.gif](https://news.ycombinator.com/y18.gif) and [grayarrow2x.gif](https://news.ycombinator.com/grayarrow2x.gif) into /img.
@@ -108,6 +110,8 @@ NewsItem Title
     module.exports = NewsItem;
     ```
 
+    > Note: You should be able to paste this code directly into your JS file.
+
  1. Create a new JS file: /js/NewsItemTest.js.
     ```
     var $ = require('jquery');
@@ -123,6 +127,8 @@ NewsItem Title
       React.render(<NewsItem item={items[0]} rank={1}/>, $('#content')[0]);
     });
     ```
+
+    > Note: This lets us develop the NewsItem component in isolation, rather than requiring it to be hooked into the full app.
 
  1. Create a new CSS file: /css/NewsItem.css. We are following [Jacob Thornton's CSS style guide](https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06).
     ```
@@ -204,6 +210,8 @@ NewsItem Domain
       }
     ```
 
+    > Note: This code should be added onto the existing code in /js/NewsItem.js.
+
  1. Update the CSS.
     ```
     .newsItem-domain {
@@ -211,6 +219,8 @@ NewsItem Domain
       margin-left: 5px;
     }
     ```
+
+    > Note: This code should be added onto the existing code in /css/NewsItem.css.
 
  1. Refresh the browser. You should see the following.
 
