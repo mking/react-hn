@@ -301,7 +301,7 @@ NewsItem Subtext
 
     <img src="img/NewsItemSubtext.png" width="268">
 
-[Previous](#newsitem-subtext) &middot; [Next](#newsitem-rank-and-vote) &middot; [Table of Contents](#newsitem)
+[Previous](#newsitem-domain) &middot; [Next](#newsitem-rank-and-vote) &middot; [Table of Contents](#newsitem)
 
 ---
 
@@ -375,7 +375,7 @@ NewsItem Rank and Vote
 
     <img src="img/NewsItem@2x.png" width="532">
 
-[Previous](#newsitem-rank-and-vote) &middot; [Next](#newsheader) &middot; [Table of Contents](#newsitem)
+[Previous](#newsitem-subtext) &middot; [Next](#newsheader) &middot; [Table of Contents](#newsitem)
 
 ---
 
@@ -606,7 +606,7 @@ NewsHeader Login
 
     <img src="img/NewsHeader@2x.png" width="532">
 
-[Previous](#newsheader-login) &middot; [Next](#newslist) &middot; [Table of Contents](#newsheader)
+[Previous](#newsheader-nav) &middot; [Next](#newslist) &middot; [Table of Contents](#newsheader)
 
 ---
 
