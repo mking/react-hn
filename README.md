@@ -1,3 +1,27 @@
+React HN
+===
+This tutorial will show you how to build the Hacker News front page in React. There are four parts to this tutorial:
+
+ 1. Build the NewsItem
+    <img src="img/NewsItem@2x.png">
+ 2. Build the NewsHeader
+    <img src="img/NewsHeader@2x.png">
+ 3. Build the NewsList
+    <img src="img/NewsList@2x.png">
+ 4. Hook up with the Hacker News API
+
+NewsItem
+---
+
+NewsHeader
+---
+
+NewsList
+---
+
+Hacker News API
+---
+
 python -m SimpleHTTPServer 8888
 watchify -v -o build/js/app.js js/app.js
 scss --watch scss:build/css
