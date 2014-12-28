@@ -11,13 +11,13 @@ The table of contents should be visual. This makes it easy to understand how all
 
 Instruction blocks should be single level lists. This is a readability issue.
 
-Instruction blocks should have a "Back to <table of contents item>" link.
+Instruction blocks should have a up and next links.
 
 Instruction blocks should end with a "check your work" screenshot.
 
 Code excerpts should not have leading, trailing, or unnecessary ellipses.
 
-Links should work (table of contents, back links, next links, localhost links).
+Links should work (table of contents, up links, next links, localhost links).
 
 Images should be in sync.
 
