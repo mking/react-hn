@@ -32,7 +32,7 @@ Setup
     cd hn
     ```
 
-    > Note: We will be building the project from scratch. The solution in this repo is only meant to be a reference.
+    > Note: We will be building the project from scratch. The solution in this repo is meant primarily to be a reference.
 
  1. [Download the sample data](https://raw.githubusercontent.com/mking/react-hn/master/json/items.json) into /json.
 
