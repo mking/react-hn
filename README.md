@@ -367,7 +367,7 @@ NewsItem Rank and Vote
 
     <img src="img/NewsItemRankVote.png" width="297">
 
-    You have now implemented HN news items in React.
+    You have now implemented an HN news item in React.
 
     <img src="img/NewsItem@2x.png" width="532">
 
