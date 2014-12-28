@@ -1,0 +1,41 @@
+body {
+  font-family: Verdana, sans-serif;
+}
+
+.newsHeader {
+  align-items: center;
+  background: #ff6600;
+  color: black;
+  display: flex;
+  font-size: 10pt;
+  padding: 2px;
+}
+
+.newsHeader-login {
+  margin-right: 5px;
+}
+
+.newsHeader-logo {
+  border: 1px solid white;
+  flex-basis: 18px;
+  height: 18px;
+}
+
+.newsHeader-nav {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.newsHeader-navLink:not(:first-child)::before {
+  content: ' | ';
+}
+
+.newsHeader-textLink {
+  color: black;
+  text-decoration: none;
+}
+
+.newsHeader-title > a {
+  font-weight: bold;
+  margin-left: 4px;
+}
