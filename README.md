@@ -11,7 +11,7 @@ This tutorial will show you how to build the Hacker News front page in React. Th
  3. [Build the NewsList](#newslist)
 
     <img src="img/NewsList@2x.png" width="532">
- 4. [Hook up with the Hacker News API](#hackernewsapi)
+ 4. [Hook up with the Hacker News API](#hacker-news-api)
 
     During development, we use static data from the /json directory.
 
