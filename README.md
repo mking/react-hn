@@ -58,6 +58,8 @@ This tutorial has five parts:
 
 > Note: Because there is only so much we can do in one tutorial, event handling (not needed for the HN front page) and Flux are out of scope.
 
+---
+
 Setup
 ---
  1. Create the project directory structure.
@@ -96,7 +98,7 @@ Setup
     npm install -g browserify watchify
     ```
 
-[Next](#newsitem) / [Back](#setup-toc)
+[Next](#newsitem) &middot; [Up](#setup-toc)
 
 ---
 
