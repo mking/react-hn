@@ -27,7 +27,7 @@ NewsItem
 
  1. Create the initial project.
 
-     1. Create a directory for your project (hn) and cd into it. You will be doing your work out of this directory.
+     1. Create the directory for your project and cd into it. You will be doing your work out of this directory.
         ```
         mkdir hn
         cd hn
@@ -44,76 +44,76 @@ NewsItem
 
  2. Create the initial NewsItem component.
 
-    Create the demo page (/html/NewsItem.html). This way, we can build the NewsItem component by itself, without requiring the full app.
-    ```
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <meta charset="utf-8">
-        <title>NewsItem</title>
-        <link href="/css/NewsItem.css" rel="stylesheet">
-      </head>
-      <body>
-        <div id="content"></div>
-        <script src="/build/js/NewsItem.js"></script>
-      </body>
-    </html>
-    ```
+     1. Create the demo page (/html/NewsItem.html). This way, we can build the NewsItem component by itself, without requiring the full app.
+        ```
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="utf-8">
+            <title>NewsItem</title>
+            <link href="/css/NewsItem.css" rel="stylesheet">
+          </head>
+          <body>
+            <div id="content"></div>
+            <script src="/build/js/NewsItem.js"></script>
+          </body>
+        </html>
+        ```
 
-    Create the JS file (/js/NewsItem.js). This is an empty component to make sure all our tools are hooked up correctly.
-    ```
-    var $ = require('jquery');
-    var React = require('react');
+     2. Create the JS file (/js/NewsItem.js). This is an empty component to make sure all our tools are hooked up correctly.
+        ```
+        var $ = require('jquery');
+        var React = require('react');
 
-    var NewsItem = React.createClass({
-      render: function () {
-        return (
-          <div className="newsItem">
-            NewsItem test
-          </div>
-        );
-      }
-    });
+        var NewsItem = React.createClass({
+          render: function () {
+            return (
+              <div className="newsItem">
+                NewsItem test
+              </div>
+            );
+          }
+        });
 
-    React.render(<NewsItem/>, $('#content')[0]);
-    ```
+        React.render(<NewsItem/>, $('#content')[0]);
+        ```
 
-    Create CSS file (/css/NewsItem.css): an empty file.
+     3. Create CSS file (/css/NewsItem.css): an empty file.
 
  3. Install, configure, and run Browserify.
 
-    Create /package.json.
-    ```
-    {
-      "name": "hn",
-      "version": "0.1.0",
-      "private": true
-    }
-    ```
+     1. Create /package.json.
+        ```
+        {
+          "name": "hn",
+          "version": "0.1.0",
+          "private": true
+        }
+        ```
 
-    Install Browserify, React, and tools.
-    ```
-    npm install --save react jquery lodash moment
-    npm install --save-dev browserify watchify reactify
-    npm install -g browserify watchify
-    ```
+     2. Install Browserify, React, and tools.
+        ```
+        npm install --save react jquery lodash moment
+        npm install --save-dev browserify watchify reactify
+        npm install -g browserify watchify
+        ```
 
-    Configure Browserify in /package.json
-    ```
-    {
-      ...,
-      "browserify": {
-        "transform": [
-          ["reactify"]
-        ]
-      }
-    }
-    ```
+     3. Configure Browserify in /package.json
+        ```
+        {
+          ...,
+          "browserify": {
+            "transform": [
+              ["reactify"]
+            ]
+          }
+        }
+        ```
 
-    Run Watchify. We need Watchify in order to recompile JSX files whenever they change. I normally run Watchify in a separate terminal tab, and I normally use the `-v` flag so that I can see when files are recompiled.
-    ```
-    watchify -v -o build/js/NewsItem.js js/NewsItem.js
-    ```
+     4. Run Watchify. We need Watchify in order to recompile JSX files whenever they change. I normally run Watchify in a separate terminal tab, and I normally use the `-v` flag so that I can see when files are recompiled.
+        ```
+        watchify -v -o build/js/NewsItem.js js/NewsItem.js
+        ```
 
  4. Run the demo.
     ```
