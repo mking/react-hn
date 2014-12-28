@@ -31,3 +31,5 @@ Alphabetize CSS rules and declarations.
 The code in the repo should exactly match the code in the tutorial.
 
 We use `1.` only for Markdown lists.
+
+Remove unused requires.

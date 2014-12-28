@@ -20,7 +20,7 @@ This tutorial has five parts:
 
  1. [Display live data from the Hacker News API](#hacker-news-api)
 
-> Note: Because there is only so much we can do in one tutorial, event handling (not needed for the HN front page) and Flux are out of scope.
+> Note: Because there is only so much we can do in one tutorial, event handling (not needed for the HN front page), state (not needed for the HN front page), and Flux are out of scope.
 
 ---
 
@@ -643,10 +643,9 @@ NewsList Header and Items
  1. Create a new JS file: /js/NewsList.js.
     ```
     var _ = require('lodash');
-    var $ = require('jquery');
     var NewsHeader = require('./NewsHeader');
     var NewsItem = require('./NewsItem');
-    var React = require('react/addons');
+    var React = require('react');
 
     var NewsList = React.createClass({
       render: function () {
@@ -779,60 +778,36 @@ NewsList More
 
 Hacker News API
 ---
- 1. Update /js/NewsList.js.
-    ```
-    var NewsList = React.createClass({
-      ...
-      componentDidMount: function () {
-        if (this.props.items) {
-          return;
-        }
-
-        // Get the top item ids
-        $.ajax({
-          url: 'https://hacker-news.firebaseio.com/v0/topstories.json',
-          dataType: 'json'
-        }).then(function (stories) {
-          // Get the item details in parallel
-          var detailDeferreds = _.map(stories.slice(0, 30), function (itemId) {
-            return $.ajax({
-              url: 'https://hacker-news.firebaseio.com/v0/item/' + itemId + '.json',
-              dataType: 'json'
-            });
-          });
-          return $.when.apply($, detailDeferreds);
-        }).then(function () {
-          // Extract the response JSON
-          var items = _.map(arguments, function (argument) {
-            return argument[0];
-          });
-          this.setState({items: items});
-        }.bind(this));
-      },
-      ...
-      getInitialState: function () {
-        return {
-          items: []
-        };
-      },
-      ...
-      render: function () {
-        ...
-        {_.map(this.props.items || this.state.items, function () {
-          ...
-        }.bind(this)}
-        ...
-      }
-    });
-    ```
-
  1. Create a new JS file: /js/app.js.
     ```
+    var _ = require('lodash');
     var $ = require('jquery');
     var NewsList = require('./NewsList');
     var React = require('react');
 
-    React.render(<NewsList/>, $('#content')[0]);
+    // Get the top item ids
+    $.ajax({
+      url: 'https://hacker-news.firebaseio.com/v0/topstories.json',
+      dataType: 'json'
+    }).then(function (stories) {
+      // Get the item details in parallel
+      var detailDeferreds = _.map(stories.slice(0, 30), function (itemId) {
+        return $.ajax({
+          url: 'https://hacker-news.firebaseio.com/v0/item/' + itemId + '.json',
+          dataType: 'json'
+        });
+      });
+      return $.when.apply($, detailDeferreds);
+    }).then(function () {
+      // Extract the response JSON
+      var items = _.map(arguments, function (argument) {
+        return argument[0];
+      });
+
+      // Render the items
+      React.render(<NewsList items={items}/>, $('#content')[0]);
+    }.bind(this));
+
     ```
 
  1. Create a new HTML file: /html/app.html.
