@@ -1,0 +1,56 @@
+@import 'common';
+
+.newsItem {
+  @include align-items(baseline);
+  @include display(flex);
+  color: $color-gray;
+  font-size: $fontSize-extraSmall;
+  margin-top: 5px;
+
+  &-domain {
+    font-size: $fontSize-small;
+  }
+
+  &-itemText {
+    @include flex-grow(1);
+  }
+
+  &-rank {
+    @include flex-basis(25px);
+    font-size: $fontSize-medium;
+    text-align: right;
+  }
+
+  &-textLink {
+    color: $color-gray;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &-titleLink {
+    color: $color-black;
+    font-size: $fontSize-medium;
+    text-decoration: none;
+  }
+
+  &-vote {
+    @include flex-basis(25px);
+    text-align: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &-voteIcon {
+    font-size: 13px;
+  }
+
+  &-voteLink {
+    color: $color-gray;
+    text-decoration: none;
+  }
+}

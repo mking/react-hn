@@ -1,0 +1,69 @@
+@import 'common';
+
+.newsList {
+  background: $color-tan;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+
+  &-header {
+    @include align-items(center);
+    @include display(flex);
+    background: $color-orange;
+    color: $color-black;
+    font-size: $fontSize-medium;
+  }
+
+  &-login {
+    padding: 5px;
+  }
+
+  &-logo {
+    padding: 2px;
+  }
+
+  &-logoBorder {
+    @include display(flex);
+    border: 1px solid $color-white;
+    height: 20px;
+    width: 20px;
+  }
+
+  &-logoText {
+    color: $color-white;
+    font-size: 14px;
+    margin: auto;
+  }
+
+  &-more {
+    font-size: $fontSize-medium;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-left: 50px; // matches rank and vote width
+  }
+
+  &-nav {
+    @include flex-grow(1);
+    margin-left: 10px;
+  }
+
+  &-navLink {
+    &:not(:first-child)::before {
+      content: ' | ';
+    }
+  }
+
+  &-newsItems {
+    margin-top: 10px;
+  }
+
+  &-textLink {
+    color: black;
+    text-decoration: none;
+  }
+
+  &-title {
+    font-weight: bold;
+    margin-left: 5px;
+  }
+}
