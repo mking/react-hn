@@ -27,20 +27,20 @@ NewsItem
 
  1. Create the initial project.
 
-     a. Create a directory for your project (hn) and cd into it. You will be doing your work out of this directory.
+     1. Create a directory for your project (hn) and cd into it. You will be doing your work out of this directory.
         ```
         mkdir hn
         cd hn
         ```
 
-     b. Create the project directory structure.
+     2. Create the project directory structure.
         ```
         mkdir -p {build/js,css,html,img,js,json}
         ```
 
-     c. [Download the sample data](https://raw.githubusercontent.com/mking/react-hn/master/json/items.json) into /json.
+     3. [Download the sample data](https://raw.githubusercontent.com/mking/react-hn/master/json/items.json) into /json.
 
-     d. Download [y18.gif](https://news.ycombinator.com/y18.gif) and [grayarrow2x.gif](https://news.ycombinator.com/grayarrow2x.gif) into /img.
+     4. Download [y18.gif](https://news.ycombinator.com/y18.gif) and [grayarrow2x.gif](https://news.ycombinator.com/grayarrow2x.gif) into /img.
 
  2. Create the initial NewsItem component.
 
