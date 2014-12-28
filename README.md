@@ -56,7 +56,7 @@ There are five parts to this tutorial:
 
     1. [Display the more link.](#newslist-more)
 
-       <img src="img/NewsListMore.png" width="98">
+       <img src="img/NewsListMore.png" width="136">
 
  1. [Display live data](#hacker-news-api)
 
@@ -729,7 +729,7 @@ NewsList More
 
  1. Refresh the browser. You should see the following.
 
-    <img src="img/NewsListMore.png" width="98">
+    <img src="img/NewsListMore.png" width="136">
 
 [Back to top](#react-hn)
 
