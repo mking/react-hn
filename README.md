@@ -1,12 +1,10 @@
 React HN
 ===
-This tutorial will show you how to build the [Hacker News](https://news.ycombinator.com) front page in React ([view finished tutorial](https://mking.github.io/react-hn)). To do this, we are going to build small, self-contained components, and then we will compose them (like Lego bricks) to get the final result.
+This is a visual React tutorial. This tutorial should give you a feel for "growing" a React UI from small, modular parts. By the end of this tutorial, you will have built the [HN front page in React](https://mking.github.io/react-hn).
 
-Background required: HTML/CSS/JS
+> Note: Because there is only so much we can do in one tutorial, event handling (which is not needed to create the HN front page) and Flux are out of scope.
 
-Out of scope: Flux, event handling (event handling is not needed to create the HN front page), Firebase (a production HN client would use ReactFire, but we are using $.ajax to illustrate JSON API access)
-
-There are five parts to this tutorial:
+This tutorial has five parts:
 
  1. [Setup](#setup)
 
@@ -60,7 +58,7 @@ There are five parts to this tutorial:
 
  1. [Display live data](#hacker-news-api)
 
-    During development, we use static data from the /json directory.
+    > Note: During development, we use static data from the /json directory.
 
 Setup
 ---
@@ -207,17 +205,15 @@ NewsItem Domain
       },
       ...
       render: function () {
-        ...
         return (
           <div className="newsItem">
             ...
-            <div className="newsItem-domain">
+            <span className="newsItem-domain">
               ({this.getDomain()})
-            </div>
+            </span>
           </div>
         );
       }
-      ...
     ```
 
  1. Update the CSS.
@@ -272,7 +268,6 @@ NewsItem Subtext
       },
       ...
       render: function () {
-        ...
         return (
           <div className="newsItem">
             {this.getTitle()}
@@ -287,12 +282,12 @@ NewsItem Subtext
     .newsItem-subtext {
       font-size: 7pt;
     }
-
+    ...
     .newsItem-subtext > a {
       color: #828282;
       text-decoration: none;
     }
-
+    ...
     .newsItem-subtext > a:hover {
       text-decoration: underline;
     }
@@ -329,7 +324,6 @@ NewsItem Rank and Vote
       },
       ...
       render: function () {
-        ...
         return (
           <div className="newsItem">
             {this.getRank()}
@@ -370,6 +364,10 @@ NewsItem Rank and Vote
  1. Refresh the browser. You should see the following.
 
     <img src="img/NewsItemRankVote.png" width="297">
+
+    You have now implemented an HN news item in React.
+
+    <img src="img/NewsItem@2x.png" width="532">
 
 [Back to top](#react-hn)
 
@@ -592,6 +590,10 @@ NewsHeader Login
 
     <img src="img/NewsHeaderLogin.png" width="530">
 
+    You have now implemented the HN header in React.
+
+    <img src="img/NewsHeader@2x.png" width="532">
+
 [Back to top](#react-hn)
 
 NewsList Header and Items
@@ -650,7 +652,7 @@ NewsList Header and Items
     <!DOCTYPE html>
     <html>
       <head>
-        <title>Hacker News</title>
+        <title>NewsList</title>
         <link href="/css/NewsHeader.css" rel="stylesheet">
         <link href="/css/NewsItem.css" rel="stylesheet">
         <link href="/css/NewsList.css" rel="stylesheet">
@@ -721,6 +723,10 @@ NewsList More
  1. Refresh the browser. You should see the following.
 
     <img src="img/NewsListMore.png" width="136">
+
+    You have now implemented the HN item list in React.
+
+    <img src="img/NewsList@2x.png" width="532">
 
 [Back to top](#react-hn)
 
@@ -810,4 +816,6 @@ Hacker News API
     python -m SimpleHTTPServer 8888
     ```
 
- 1. Visit [http://localhost:8888/html/app.html](http://localhost:8888/html/app.html). You should see a live version of the Hacker News front page.
+ 1. Visit [http://localhost:8888/html/app.html](http://localhost:8888/html/app.html).
+
+    You have now implemented the [HN front page](https://news.ycombinator.com) in React.
