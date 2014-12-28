@@ -205,6 +205,7 @@ NewsItem
           }
           ...
         ```
+
      2. Update the CSS.
         ```
         body {
@@ -226,6 +227,7 @@ NewsItem
           text-decoration: none;
         }
         ```
+        
      3. Refresh the browser. You should see the following.
 
         <img src="img/TitleDomain.png" width="213">
