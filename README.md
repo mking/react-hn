@@ -2,7 +2,7 @@ React HN
 ===
 This tutorial will show you how to build [the Hacker News front page in React](https://mking.github.io/react-hn). We are going to build small, self-contained components, and then we will compose them (like Lego bricks) to get the final result.
 
-Technologies learned: React (building a UI, troubleshooting common errors), Browserify
+Technologies learned: React, Browserify
 
 Background required: basic HTML/CSS/JS
 
@@ -10,20 +10,20 @@ There are four parts to this tutorial:
 
  1. [Build the NewsItem](#newsitem)
 
-    <img src="img/NewsItem.png" width="50%">
+    <img src="img/NewsItem.png" width="532">
  2. [Build the NewsHeader](#newsheader)
 
-    <img src="img/NewsHeader.png" width="50%">
+    <img src="img/NewsHeader.png" width="532">
  3. [Build the NewsList](#newslist)
 
-    <img src="img/NewsList.png" width="50%">
+    <img src="img/NewsList.png" width="532">
  4. [Display live data](#hacker-news-api)
 
     During development, we use static data from the /json directory.
 
 NewsItem
 ---
-> Note: You will be building the app from scratch. This repo provides solutions for each part of the tutorial, but it isn't necessary to use any of the code here. I think it's easier to learn when you do all the steps yourself, rather than having some of them done for you.
+> Note: You will be building the app from scratch, but you can check your work against the solutions in this repo.
 
  1. Create the initial project.
 
@@ -115,7 +115,7 @@ NewsItem
         }
         ```
 
-     4. Run Watchify. We need Watchify in order to recompile React components whenever they change. I normally run Watchify in a separate terminal tab, and I normally use the `-v` flag so that I can see when files are recompiled.
+     4. Run Watchify. We need Watchify in order to recompile React components whenever they change. I normally run this in a separate terminal tab.
         ```
         watchify -v -o build/js/NewsItem.js js/NewsItem.js
         ```
@@ -141,33 +141,30 @@ NewsItem
             }).then(function (items) {
               console.log('items', items);
               this.setState({item: items[0]});
-            });
+            }.bind(this));
           },
           ...
         ```
 
-        <img src="/img/DeveloperConsole.png" width="50%">
+        <img src="/img/DeveloperConsole.png" width="274">
 
-     2. Refresh the browser and check for items in the console. You should see the following error:
-
-        <img src="/img/NoBind.png" width="50%">
-
-        If you click on the stacktrace link, you will see the problem.
-
-        <img src="/img/NoBindStacktrace.png" width="50%">
-
-        `setState` is undefined. This is because `this` is unavailable within the AJAX callback. To fix this, add a bind.
+     2. Define the initial state for the component.
         ```
-        }).then(function (items) {
+        var NewsItem = React.createClass({
           ...
-        }.bind(this));
+          getInitialState: function () {
+            return {};
+          },
+          ...
         ```
 
-        Refresh the browser and check the console for errors. You should not see any more errors.
-
-     3. Display the data.
+     3. Display the data using the state. If the state is not yet loaded, render nothing.
         ```
         render: function () {
+          if (!this.state.item) {
+            return null;
+          }
+
           return (
             <div className="newsItem">
               {this.state.item.title}
@@ -176,25 +173,7 @@ NewsItem
         }
         ```
 
-     4. Refresh the browser and check the console for errors. You should see the following error:
-
-        <img src="/img/NoState.png" width="50%">
-
-        We get this error because `this.state` is null. To enable state, we need to set an initial state for the component. We will also render nothing if the data is not yet loaded.
-        ```
-        getInitialState: function () {
-          return {};
-        },
-
-        render: function () {
-          if (!this.state.item) {
-            return null;
-          }
-          ...
-        }
-        ```
-
-        You should see the title text for the first item ("Look, no hands").
+     4. Refresh the browser. You should see the title text for the first item ("Look, no hands").
 
 NewsHeader
 ---
