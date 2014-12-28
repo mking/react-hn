@@ -10,13 +10,13 @@ There are four parts to this tutorial:
 
  1. [Build the NewsItem](#newsitem)
 
-    <img src="img/NewsItem.png">
+    <img src="img/NewsItem.png" width="50%">
  2. [Build the NewsHeader](#newsheader)
 
-    <img src="img/NewsHeader.png">
+    <img src="img/NewsHeader.png" width="50%">
  3. [Build the NewsList](#newslist)
 
-    <img src="img/NewsList.png">
+    <img src="img/NewsList.png" width="50%">
  4. [Display live data](#hacker-news-api)
 
     During development, we use static data from the /json directory.
@@ -146,15 +146,15 @@ NewsItem
           ...
         ```
 
-        <img src="/img/DeveloperConsole.png">
+        <img src="/img/DeveloperConsole.png" width="50%">
 
      2. Refresh the browser and check for items in the console. You should see the following error:
 
-        <img src="/img/NoBind.png">
+        <img src="/img/NoBind.png" width="50%">
 
         If you click on the stacktrace link, you will see the problem.
 
-        <img src="/img/NoBindStacktrace.png">
+        <img src="/img/NoBindStacktrace.png" width="50%">
 
         `setState` is undefined. This is because `this` is unavailable within the AJAX callback. To fix this, add a bind. By using bind, the value of `this` inside the callback is the same as the value of `this` inside the React class method.
         ```
@@ -178,7 +178,7 @@ NewsItem
 
      4. Refresh the browser and check the console for errors. You should see the following error:
 
-        <img src="/img/NoState.png">
+        <img src="/img/NoState.png" width="50%">
 
         We get this error because `this.state` is null. To enable state, we need to set an initial state for the component. We will also render nothing if the data is not yet loaded.
         ```
