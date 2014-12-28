@@ -2,6 +2,8 @@ React HN
 ===
 This is a visual React tutorial. This tutorial should give you a feel for "growing" a React UI from small, modular parts. By the end of this tutorial, you will have built the [HN front page in React](https://mking.github.io/react-hn).
 
+> Note: This tutorial does not cover event handling (not needed for the HN front page), state (not needed for the HN front page), or Flux.
+
 This tutorial has five parts:
 
  1. [Setup](#setup)
@@ -19,8 +21,6 @@ This tutorial has five parts:
     <img src="img/NewsList@2x.png" width="532">
 
  1. [Display live data from the Hacker News API](#hacker-news-api)
-
-> Note: Because there is only so much we can do in one tutorial, event handling (not needed for the HN front page), state (not needed for the HN front page), and Flux are out of scope. If you like this style of tutorial but would like me to cover more of React, let me know (file an issue). If there is enough interest I will try and come up with something.
 
 ---
 
