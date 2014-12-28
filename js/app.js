@@ -15,7 +15,7 @@ var NewsHeader = React.createClass({displayName: "NewsHeader",
   getLogo: function () {
     return (
       React.createElement("div", {className: "newsHeader-logo"}, 
-        React.createElement("a", {href: "https://www.ycombinator.com"}, React.createElement("img", {src: "/img/y18.gif"}))
+        React.createElement("a", {href: "https://www.ycombinator.com"}, React.createElement("img", {src: "../img/y18.gif"}))
       )
     );
   },
@@ -136,7 +136,7 @@ var NewsItem = React.createClass({displayName: "NewsItem",
     return (
       React.createElement("div", {className: "newsItem-vote"}, 
         React.createElement("a", {href: 'https://news.ycombinator.com/vote?for=' + this.props.item.id + '&dir=up&whence=news'}, 
-          React.createElement("img", {src: "/img/grayarrow2x.gif", width: "10"})
+          React.createElement("img", {src: "../img/grayarrow2x.gif", width: "10"})
         )
       )
     );
