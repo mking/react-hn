@@ -14,11 +14,11 @@ There are five parts to this tutorial:
 
      1. [Display the title.](#newsitem-title)
 
-        <img src="img/Title.png" width="107">
+        <img src="img/Title.png" width="110">
 
-     1. [Display the title and domain.](#newsitem-title-and-domain)
+     1. [Display the domain.](#newsitem-domain)
 
-        <img src="img/TitleDomain.png" width="213">
+        <img src="img/Domain.png" width="213">
 
      1. [Display the subtext.](#newsitem-subtext)
 
@@ -102,7 +102,7 @@ NewsItem Title
       render: function () {
         return (
           <div className="newsItem">
-            {this.props.item.title}
+            <a className="newsItem-titleLink" href={this.props.item.url}>{this.props.item.title}</a>
           </div>
         );
       }
@@ -126,7 +126,18 @@ NewsItem Title
     });
     ```
 
- 1. Create a new, empty CSS file: /css/NewsItem.css.
+ 1. Create a new CSS file: /css/NewsItem.css. We are following [Jacob Thornton's CSS style guide](https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06).
+    ```
+    .newsItem {
+      color: #828282;
+    }
+
+    .newsItem-titleLink {
+      color: black;
+      font-size: 10pt;
+      text-decoration: none;
+    }
+    ```
 
  1. Create a new CSS file: /css/app.css.
     ```
@@ -164,13 +175,13 @@ NewsItem Title
 
  1. Refresh the browser. You should see the following.
 
-    <img src="img/Title.png" width="107">
+    <img src="img/Title.png" width="110">
 
     <img src="img/DeveloperConsole.png" width="274">
 
 [Back to top](#react-hn)
 
-NewsItem Title and Domain
+NewsItem Domain
 ---
  1. Update the JS.
     ```
@@ -186,7 +197,7 @@ NewsItem Title and Domain
         ...
         return (
           <div className="newsItem">
-            <a className="newsItem-titleLink" href={this.props.item.url}>{this.props.item.title}</a>
+            ...
             <div className="newsItem-domain">
               ({this.getDomain()})
             </div>
@@ -196,31 +207,17 @@ NewsItem Title and Domain
       ...
     ```
 
- 1. Update the CSS. We are following [Jacob Thornton's CSS style guide](https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06).
+ 1. Update the CSS.
     ```
-    body {
-      font-family: Verdana, sans-serif;
-    }
-
-    .newsItem {
-      color: #828282;
-    }
-
     .newsItem-domain {
       font-size: 8pt;
       margin-left: 5px;
-    }
-
-    .newsItem-titleLink {
-      color: black;
-      font-size: 10pt;
-      text-decoration: none;
     }
     ```
 
  1. Refresh the browser. You should see the following.
 
-    <img src="img/TitleDomain.png" width="213">
+    <img src="img/Domain.png" width="213">
 
 [Back to top](#react-hn)
 
@@ -409,10 +406,6 @@ NewsHeader Logo and Title
 
  1. Create a new CSS file: /css/NewsHeader.css.
     ```
-    body {
-      font-family: Verdana, sans-serif;
-    }
-
     .newsHeader {
       align-items: center;
       background: #ff6600;
