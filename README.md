@@ -63,42 +63,6 @@ Setup
 
  1. Download [y18.gif](https://news.ycombinator.com/y18.gif) and [grayarrow2x.gif](https://news.ycombinator.com/grayarrow2x.gif) into /img.
 
- 1. Create an html page for testing the NewsItem component.
-    ```
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <meta charset="utf-8">
-        <title>NewsItem</title>
-        <link href="/css/NewsItem.css" rel="stylesheet">
-      </head>
-      <body>
-        <div id="content"></div>
-        <script src="/build/js/NewsItem.js"></script>
-      </body>
-    </html>
-    ```
-
- 1. Create an empty NewsItem component (/js/NewsItem.js). This is for testing our project setup.
-    ```
-    var $ = require('jquery');
-    var React = require('react');
-
-    var NewsItem = React.createClass({
-      render: function () {
-        return (
-          <div className="newsItem">
-            NewsItem test
-          </div>
-        );
-      }
-    });
-
-    React.render(<NewsItem/>, $('#content')[0]);
-    ```
-
- 1. Create an empty NewsItem CSS file (/css/NewsItem.css).
-
  1. Create /package.json.
     ```
     {
@@ -130,20 +94,13 @@ Setup
     watchify -v -o build/js/NewsItem.js js/NewsItem.js
     ```
 
- 1. Test the project setup.
-    ```
-    # Visit http://localhost:8888/html/NewsItem.html
-    python -m SimpleHTTPServer 8888
-    ```
-
-    You should see the following.
-
-    <img src="img/Setup.png" width="100">
-
 NewsItem Title
 ---
- 1. Load data from the JSON file.
+ 1. Create a new JS file: /js/NewsItem.js.
     ```
+    var $ = require('jquery');
+    var React = require('react');
+
     var NewsItem = React.createClass({
       componentWillMount: function () {
         $.ajax({
@@ -171,13 +128,44 @@ NewsItem Title
           </div>
         );
       }
+    });
+
+    React.render(<NewsItem/>, $('#content')[0]);
     ```
 
-    <img src="img/DeveloperConsole.png" width="274">
+ 1. Create a new, empty CSS file: /css/NewsItem.css.
+
+ 1. Create a new HTML file: /html/NewsItem.html.
+    ```
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>NewsItem</title>
+        <link href="/css/NewsItem.css" rel="stylesheet">
+      </head>
+      <body>
+        <div id="content"></div>
+        <script src="/build/js/NewsItem.js"></script>
+      </body>
+    </html>
+    ```
+
+ 1. Start Watchify.
+    ```
+    watchify -v -o build/js/NewsHeader.js js/NewsHeader.js
+    ```
+
+ 1. Start the HTTP server.
+    ```
+    python -m SimpleHTTPServer 8888
+    ```
 
  1. Refresh the browser. You should see the following.
 
     <img src="img/Title.png" width="107">
+
+    <img src="img/DeveloperConsole.png" width="274">
 
 NewsItem Title and Domain
 ---
@@ -449,7 +437,7 @@ NewsHeader Logo and Title
     </html>
     ```
 
- 1. Run Watchify against the new JS file.
+ 1. Start Watchify.
     ```
     watchify -v -o build/js/NewsHeader.js js/NewsHeader.js
     ```
