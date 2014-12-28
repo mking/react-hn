@@ -146,7 +146,7 @@ NewsItem
           ...
         ```
 
-        <img src="/img/DeveloperConsole.png" width="274">
+        <img src="img/DeveloperConsole.png" width="274">
 
      2. Initialize the component state.
          ```
@@ -178,7 +178,7 @@ NewsItem
 
      4. Refresh the browser. You should see the following.
 
-        <img src="Title.png" width="107">
+        <img src="img/Title.png" width="107">
 
  6. Display the title link and domain. Note: We are following the [CSS style guide](https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06) from Jacob Thornton (creator of Bootstrap).
 
@@ -228,7 +228,7 @@ NewsItem
         ```
      3. Refresh the browser. You should see the following.
 
-        <img src="TitleDomain.png" width="213">
+        <img src="img/TitleDomain.png" width="213">
 
  7. Display the subtext.
 
@@ -294,7 +294,7 @@ NewsItem
 
      3. Refresh the browser. You should see the following.
 
-        <img src="Subtext.png" width="268">
+        <img src="img/Subtext.png" width="268">
 
  8. Display the rank and vote.
 
@@ -361,7 +361,7 @@ NewsItem
 
      3. Refresh the browser. You should see the following.
 
-        <img src="RankVote.png" width="297">
+        <img src="img/RankVote.png" width="297">
 
 
 NewsHeader
