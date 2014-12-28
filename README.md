@@ -2,30 +2,34 @@ React HN
 ===
 This tutorial will show you how to build the Hacker News front page in React. There are four parts to this tutorial:
 
- 1. Build the NewsItem
+ 1. [Build the NewsItem](#newsitem)
 
     <img src="img/NewsItem@2x.png" width="532">
- 2. Build the NewsHeader
+ 2. [Build the NewsHeader](#newsheader)
 
     <img src="img/NewsHeader@2x.png" width="532">
- 3. Build the NewsList
+ 3. [Build the NewsList](#newslist)
 
     <img src="img/NewsList@2x.png" width="532">
- 4. Hook up with the Hacker News API
+ 4. [Hook up with the Hacker News API](#hackernewsapi)
 
     During development, we use static data from the /json directory.
 
 NewsItem
 ---
+<img src="img/NewsList@2x.png" width="532" height="1000">
 
 NewsHeader
 ---
+<img src="img/NewsList@2x.png" width="532" height="1000">
 
 NewsList
 ---
+<img src="img/NewsList@2x.png" width="532" height="1000">
 
 Hacker News API
 ---
+<img src="img/NewsList@2x.png" width="532" height="1000">
 
 python -m SimpleHTTPServer 8888
 watchify -v -o build/js/app.js js/app.js
