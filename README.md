@@ -2,13 +2,13 @@ React HN
 ===
 This is a visual React tutorial. This tutorial should give you a feel for "growing" a React UI from small, modular parts. By the end of this tutorial, you will have built the [HN front page in React](https://mking.github.io/react-hn).
 
-> Note: Because there is only so much we can do in one tutorial, event handling (which is not needed to create the HN front page) and Flux are out of scope.
+> Note: Because there is only so much we can do in one tutorial, event handling (not needed for the HN front page) and Flux are out of scope.
 
 This tutorial has five parts:
 
- 1. [Setup](#setup)
+ 1. <span id="setup-toc">[Setup](#setup)</span>
 
- 1. NewsItem component
+ 1. <span id="newsitem">NewsItem component</span>
 
     <img src="img/NewsItem@2x.png" width="532">
 
@@ -28,7 +28,7 @@ This tutorial has five parts:
 
         <img src="img/NewsItemRankVote.png" width="297">
 
- 1. NewsHeader component
+ 1. <span id="newsheader">NewsHeader component</span>
 
     <img src="img/NewsHeader@2x.png" width="532">
 
@@ -44,7 +44,7 @@ This tutorial has five parts:
 
        <img src="img/NewsHeaderLogin.png" width="530">
 
- 1. NewsList component
+ 1. <span id="newslist">NewsList component</span>
 
     <img src="img/NewsList@2x.png" width="532">
 
@@ -56,7 +56,7 @@ This tutorial has five parts:
 
        <img src="img/NewsListMore.png" width="136">
 
- 1. [Display live data](#hacker-news-api)
+ 1. <span id="hacker-news-api-toc">[Display live data](#hacker-news-api)</span>
 
     > Note: During development, we use static data from the /json directory.
 
@@ -98,7 +98,7 @@ Setup
     npm install -g browserify watchify
     ```
 
-[Back to top](#react-hn)
+[Back to Table of Contents](#setup-toc)
 
 NewsItem Title
 ---
@@ -190,7 +190,7 @@ NewsItem Title
 
     <img src="img/DeveloperConsole.png" width="274">
 
-[Back to top](#react-hn)
+[Back to Table of Contents](#newsitem)
 
 NewsItem Domain
 ---
@@ -228,7 +228,7 @@ NewsItem Domain
 
     <img src="img/NewsItemDomain.png" width="213">
 
-[Back to top](#react-hn)
+[Back to Table of Contents](#newsitem)
 
 NewsItem Subtext
 ---
@@ -297,7 +297,7 @@ NewsItem Subtext
 
     <img src="img/NewsItemSubtext.png" width="268">
 
-[Back to top](#react-hn)
+[Back to Table of Contents](#newsitem)
 
 NewsItem Rank and Vote
 ---
@@ -365,11 +365,11 @@ NewsItem Rank and Vote
 
     <img src="img/NewsItemRankVote.png" width="297">
 
-    You have now implemented an HN news item in React.
+    You have now implemented HN news items in React.
 
     <img src="img/NewsItem@2x.png" width="532">
 
-[Back to top](#react-hn)
+[Back to Table of Contents](#newsitem)
 
 NewsHeader Logo and Title
 ---
@@ -476,7 +476,7 @@ NewsHeader Logo and Title
 
     <img src="img/NewsHeaderLogoTitle.png" width="140">
 
-[Back to top](#react-hn)
+[Back to Table of Contents](#newsheader)
 
 NewsHeader Nav
 ---
@@ -553,7 +553,7 @@ NewsHeader Nav
 
     <img src="img/NewsHeaderNav.png" width="453">
 
-[Back to top](#react-hn)
+[Back to Table of Contents](#newsheader)
 
 NewsHeader Login
 ---
@@ -594,7 +594,7 @@ NewsHeader Login
 
     <img src="img/NewsHeader@2x.png" width="532">
 
-[Back to top](#react-hn)
+[Back to Table of Contents](#newsheader)
 
 NewsList Header and Items
 ---
@@ -679,7 +679,7 @@ NewsList Header and Items
 
     <img src="img/NewsListHeaderItems.png" width="270">
 
-[Back to top](#react-hn)
+[Back to Table of Contents](#newslist)
 
 NewsList More
 ---
@@ -728,7 +728,7 @@ NewsList More
 
     <img src="img/NewsList@2x.png" width="532">
 
-[Back to top](#react-hn)
+[Back to Table of Contents](#newslist)
 
 Hacker News API
 ---
@@ -819,3 +819,5 @@ Hacker News API
  1. Visit [http://localhost:8888/html/app.html](http://localhost:8888/html/app.html).
 
     You have now implemented the [HN front page](https://news.ycombinator.com) in React.
+
+[Back to Table of Contents](#hacker-news-api-toc)
