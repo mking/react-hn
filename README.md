@@ -96,7 +96,8 @@ Setup
     npm install -g browserify watchify
     ```
 
-[Up](#setup-toc) - [Next](#newsitem)
+- [Next](#newsitem)
+- [Back](#setup-toc)
 
 NewsItem Title
 ---
