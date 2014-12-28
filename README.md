@@ -2,7 +2,7 @@ React HN
 ===
 This is a visual React tutorial. This tutorial should give you a feel for "growing" a React UI from small, modular parts. By the end of this tutorial, you will have built the [HN front page in React](https://mking.github.io/react-hn).
 
-> Note: This tutorial does not cover event handling (not needed for the HN front page), state (not needed for the HN front page), or Flux.
+> Note: This tutorial covers React, React-Browserify integration (the React team uses Browserify to manage dependencies), and React-CSS integration. It does not cover event handling (not needed for the HN front page), state (not needed for the HN front page), or Flux.
 
 This tutorial has five parts:
 
