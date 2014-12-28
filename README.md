@@ -48,11 +48,11 @@ Setup
     cd hn
     ```
 
- 2. [Download the sample data](https://raw.githubusercontent.com/mking/react-hn/master/json/items.json) into /json.
+ 1. [Download the sample data](https://raw.githubusercontent.com/mking/react-hn/master/json/items.json) into /json.
 
- 3. Download [y18.gif](https://news.ycombinator.com/y18.gif) and [grayarrow2x.gif](https://news.ycombinator.com/grayarrow2x.gif) into /img.
+ 1. Download [y18.gif](https://news.ycombinator.com/y18.gif) and [grayarrow2x.gif](https://news.ycombinator.com/grayarrow2x.gif) into /img.
 
- 4. Create an html page for testing the NewsItem component.
+ 1. Create an html page for testing the NewsItem component.
     ```
     <!DOCTYPE html>
     <html>
@@ -68,7 +68,7 @@ Setup
     </html>
     ```
 
- 5. Create an empty NewsItem component (/js/NewsItem.js). This is for testing our project setup.
+ 1. Create an empty NewsItem component (/js/NewsItem.js). This is for testing our project setup.
     ```
     var $ = require('jquery');
     var React = require('react');
@@ -86,9 +86,9 @@ Setup
     React.render(<NewsItem/>, $('#content')[0]);
     ```
 
- 6. Create an empty NewsItem CSS file (/css/NewsItem.css).
+ 1. Create an empty NewsItem CSS file (/css/NewsItem.css).
 
- 7. Create /package.json.
+ 1. Create /package.json.
     ```
     {
       "name": "hn",
@@ -102,7 +102,7 @@ Setup
     }
     ```
 
- 8. Install Browserify, React, and tools.
+ 1. Install Browserify, React, and tools.
     ```
     # These dependencies are required for the running app.
     npm install --save react jquery lodash moment
@@ -114,12 +114,12 @@ Setup
     npm install -g browserify watchify
     ```
 
- 9. Run Watchify. I normally run this in a separate terminal tab.
+ 1. Run Watchify. I normally run this in a separate terminal tab.
     ```
     watchify -v -o build/js/NewsItem.js js/NewsItem.js
     ```
 
-10. Test the project setup.
+ 1. Test the project setup.
     ```
     # Visit http://localhost:8888/html/NewsItem.html
     python -m SimpleHTTPServer 8888
