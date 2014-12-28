@@ -222,7 +222,7 @@ NewsItem Domain
 
 NewsItem Subtext
 ---
- 1. Update the JS. We factor out the title part into its own method.
+ 1. Update the JS. Note: We are factoring out the title part into its own method.
     ```
     var moment = require('moment');
     ...
