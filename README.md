@@ -129,9 +129,9 @@ NewsItem
 
     If you change the text, save the JS file, and refresh the browser, you should be able to see this change reflected in the page.
 
- 5. Load initial data
+ 5. Display the item title.
 
-     1. Load data in componentWillMount. I normally log the data so I can inspect the returned data structure in the developer console.
+     1. Load data from the JSON file. I normally log the data so I can inspect the data structure in the developer console.
         ```
         var NewsItem = React.createClass({
           ...
@@ -148,8 +148,8 @@ NewsItem
 
         <img src="/img/DeveloperConsole.png" width="274">
 
-     2. Define the initial state for the component.
-        ```
+     2. Initialize the component state.
+         ```
         var NewsItem = React.createClass({
           ...
           getInitialState: function () {
@@ -158,22 +158,211 @@ NewsItem
           ...
         ```
 
-     3. Display the data using the state. If the state is not yet loaded, render nothing.
+     3. Display the data. If the state is not yet loaded, render nothing.
         ```
-        render: function () {
-          if (!this.state.item) {
-            return null;
-          }
+        var NewsItem = React.createClass({
+          ...
+          render: function () {
+            if (!this.state.item) {
+              return null;
+            }
 
-          return (
-            <div className="newsItem">
-              {this.state.item.title}
-            </div>
-          );
+            return (
+              <div className="newsItem">
+                {this.state.item.title}
+              </div>
+            );
+          }
+          ...
+        ```
+
+     4. Refresh the browser. You should see the following.
+
+        <img src="Title.png" width="107">
+
+ 6. Display the title link and domain. Note: We are following the [CSS style guide](https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06) from Jacob Thornton (creator of Bootstrap).
+
+     1. Update the JS.
+        ```
+        var url = require('url');
+        ...
+        var NewsItem = React.createClass({
+          ...
+          getDomain: function () {
+            return url.parse(this.state.item.url).hostname;
+          },
+          ...
+          render: function () {
+            ...
+            return (
+              <div className="newsItem">
+                <a className="newsItem-titleLink" href={this.state.item.url}>{this.state.item.title}</a>
+                <div className="newsItem-domain">
+                  ({this.getDomain()})
+                </div>
+              </div>
+            );
+          }
+          ...
+        ```
+     2. Update the CSS.
+        ```
+        body {
+          font-family: Verdana, sans-serif;
+        }
+
+        .newsItem {
+          color: #828282;
+        }
+
+        .newsItem-domain {
+          font-size: 8pt;
+          margin-left: 5px;
+        }
+
+        .newsItem-titleLink {
+          color: black;
+          font-size: 10pt;
+          text-decoration: none;
+        }
+        ```
+     3. Refresh the browser. You should see the following.
+
+        <img src="TitleDomain.png" width="213">
+
+ 7. Display the subtext.
+
+     1. Update the JS. We factor out the title part into its own method.
+        ```
+        var moment = require('moment');
+        ...
+        var NewsItem = React.createClass({
+          ...
+          getCommentLink: function () {
+            var commentText = 'discuss';
+            if (this.state.item.kids.length) {
+              commentText = this.state.item.kids.length + ' comments';
+            }
+
+            return (
+              <a href={'https://news.ycombinator.com/item?id=' + this.state.item.id}>{commentText}</a>
+            );
+          },
+          ...
+          getSubtext: function () {
+            return (
+              <div className="newsItem-subtext">
+                {this.state.item.score} points by <a href={'https://news.ycombinator.com/user?id=' + this.state.item.by}>{this.state.item.by}</a> {moment.utc(this.state.item.time * 1000).fromNow()} | {this.getCommentLink()}
+              </div>
+            );
+          },
+          ...
+          getTitle: function () {
+            return (
+              <div className="newsItem-title">
+                ...
+              </div>
+            );
+          },
+          ...
+          render: function () {
+            ...
+            return (
+              <div className="newsItem">
+                {this.getTitle()}
+                {this.getSubtext()}
+              </div>
+            );
+          }
+        ```
+
+     2. Update the CSS.
+        ```
+        .newsItem-subtext {
+          font-size: 7pt;
+        }
+
+        .newsItem-subtext > a {
+          color: #828282;
+          text-decoration: none;
+        }
+
+        .newsItem-subtext > a:hover {
+          text-decoration: underline;
         }
         ```
 
-     4. Refresh the browser. You should see the title text for the first item ("Look, no hands").
+     3. Refresh the browser. You should see the following.
+
+        <img src="Subtext.png" width="268">
+
+ 8. Display the rank and vote.
+
+     1. Update the JS. We use a fake rank for now.
+         ```
+        var NewsItem = React.createClass({
+          ...
+          getRank: function () {
+            return (
+              <div className="newsItem-rank">
+                1.
+              </div>
+            );
+          },
+          ...
+          getVote: function () {
+            return (
+              <div className="newsItem-vote">
+                <a href={'https://news.ycombinator.com/vote?for=' + this.state.item.id + '&dir=up&whence=news'}>
+                  <img src="/img/grayarrow2x.gif" width="10"/>
+                </a>
+              </div>
+            );
+          },
+          ...
+          render: function () {
+            ...
+            return (
+              <div className="newsItem">
+                {this.getRank()}
+                {this.getVote()}
+                <div className="newsItem-itemText">
+                  {this.getTitle()}
+                  {this.getSubtext()}
+                </div>
+              </div>
+            );
+          }
+        ```
+
+     2. Update the CSS.
+        ```
+        .newsItem {
+          ...
+          align-items: baseline;
+          display: flex;  
+        }
+        ...
+        .newsItem-itemText {
+          flex-grow: 1;
+        }
+        ...
+        .newsItem-rank {
+          flex-basis: 25px;
+          font-size: 10pt;
+          text-align: right;
+        }
+        ...
+        .newsItem-vote {
+          flex-basis: 15px;
+          text-align: center;
+        }
+        ```
+
+     3. Refresh the browser. You should see the following.
+
+        <img src="RankVote.png" width="297">
+
 
 NewsHeader
 ---
