@@ -70,10 +70,6 @@ var NewsItem = React.createClass({
   },
 
   render: function () {
-    return (
-      <div>NewsItem test</div>
-    );
-
     if (!this.state.item) {
       return null;
     }

@@ -1,6 +1,6 @@
 React HN
 ===
-This tutorial will show you how to build [the Hacker News front page in React](https://mking.github.io/react-hn). We are going to build small, self-contained components, and then we will compose them (like Lego bricks) to get the final result.
+This tutorial will show you how to build [the Hacker News front page](https://news.ycombinator.com) in React ([view finished tutorial](https://mking.github.io/react-hn)). To do this, we are going to build small, self-contained components, and then we will compose them (like Lego bricks) to get the final result.
 
 Background required: HTML/CSS/JS
 
@@ -48,7 +48,7 @@ Setup
     cd hn
     ```
 
- 1. [Download the sample data](https://raw.githubusercontent.com/mking/react-hn/master/json/items.json) into /json.
+ 1. [Download the sample data](https://raw.githubusercontent.com/mking/react-hn/master/NewsItem/json/items.json) into /json.
 
  1. Download [y18.gif](https://news.ycombinator.com/y18.gif) and [grayarrow2x.gif](https://news.ycombinator.com/grayarrow2x.gif) into /img.
 
