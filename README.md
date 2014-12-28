@@ -20,7 +20,7 @@ This tutorial has five parts:
 
  1. [Display live data from the Hacker News API](#hacker-news-api)
 
-> Note: Because there is only so much we can do in one tutorial, event handling (not needed for the HN front page), Flux, and loading indicators are out of scope.
+> Note: Because there is only so much we can do in one tutorial, event handling (not needed for the HN front page) and Flux are out of scope.
 
 ---
 
