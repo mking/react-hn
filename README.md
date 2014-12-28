@@ -2,13 +2,11 @@ React HN
 ===
 This is a visual React tutorial. This tutorial should give you a feel for "growing" a React UI from small, modular parts. By the end of this tutorial, you will have built the [HN front page in React](https://mking.github.io/react-hn).
 
-> Note: Because there is only so much we can do in one tutorial, event handling (not needed for the HN front page) and Flux are out of scope.
-
 This tutorial has five parts:
 
- 1. <a name="setup-toc">[Setup](#setup)</a>
+ 1. <a name="setup-toc" href="#setup">Setup</a>
 
- 1. <a name="newsitem">NewsItem component</a>
+ 1. <p name="newsitem">NewsItem component</p>
 
     <img src="img/NewsItem@2x.png" width="532">
 
@@ -56,9 +54,9 @@ This tutorial has five parts:
 
        <img src="img/NewsListMore.png" width="136">
 
- 1. <a name="hacker-news-api-toc">[Display live data](#hacker-news-api)</a>
+ 1. <a name="hacker-news-api-toc" href="#hacker-news-api">Display live data</a>
 
-    > Note: During development, we use static data from the /json directory.
+> Note: Because there is only so much we can do in one tutorial, event handling (not needed for the HN front page) and Flux are out of scope.
 
 Setup
 ---
@@ -408,14 +406,14 @@ NewsHeader Logo and Title
     module.exports = NewsHeader;
     ```
 
-1. Create a new JS file: /js/NewsHeaderTest.js.
-   ```
-   var $ = require('jquery');
-   var NewsHeader = require('./NewsHeader');
-   var React = require('react');
+ 1. Create a new JS file: /js/NewsHeaderTest.js.
+    ```
+    var $ = require('jquery');
+    var NewsHeader = require('./NewsHeader');
+    var React = require('react');
 
-   React.render(<NewsHeader/>, $('#content')[0]);
-   ```
+    React.render(<NewsHeader/>, $('#content')[0]);
+    ```
 
  1. Create a new CSS file: /css/NewsHeader.css.
     ```
