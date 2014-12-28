@@ -1,9 +1,0 @@
-{
-  "name": "hn",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "bourbon": "~4.0.2",
-    "font-awesome": "~4.2.0"
-  }
-}

@@ -1,6 +1,5 @@
 # alphabetized
 .DS_Store
-.sass-cache
 bower_components
 build
 node_modules

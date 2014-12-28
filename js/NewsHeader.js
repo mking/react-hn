@@ -80,4 +80,4 @@ var NewsHeader = React.createClass({
   }
 });
 
-React.render(<NewsHeader/>, $('#content')[0]);
+module.exports = NewsHeader;

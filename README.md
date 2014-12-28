@@ -1,6 +1,6 @@
 React HN
 ===
-This tutorial will show you how to build the [Hacker News front page](https://news.ycombinator.com) in React ([view finished tutorial](https://mking.github.io/react-hn)). To do this, we are going to build small, self-contained components, and then we will compose them (like Lego bricks) to get the final result.
+This tutorial will show you how to build the [Hacker News](https://news.ycombinator.com) front page in React ([view finished tutorial](https://mking.github.io/react-hn)). To do this, we are going to build small, self-contained components, and then we will compose them (like Lego bricks) to get the final result.
 
 Background required: HTML/CSS/JS
 
@@ -59,7 +59,7 @@ Setup
     cd hn
     ```
 
- 1. [Download the sample data](https://raw.githubusercontent.com/mking/react-hn/master/NewsItem/json/items.json) into /json.
+ 1. [Download the sample data](https://raw.githubusercontent.com/mking/react-hn/master/json/items.json) into /json.
 
  1. Download [y18.gif](https://news.ycombinator.com/y18.gif) and [grayarrow2x.gif](https://news.ycombinator.com/grayarrow2x.gif) into /img.
 
@@ -99,38 +99,41 @@ NewsItem Title
     var React = require('react');
 
     var NewsItem = React.createClass({
-      componentWillMount: function () {
-        $.ajax({
-          url: '/json/items.json'
-        }).then(function (items) {
-          // Log the data so we can inspect it in the developer console.
-          console.log('items', items);
-          this.setState({item: items[0]});
-        }.bind(this));
-      },
-
-      getInitialState: function () {
-        return {};
-      },
-
       render: function () {
-        // Render nothing if state is not yet loaded.
-        if (!this.state.item) {
-          return null;
-        }
-
         return (
           <div className="newsItem">
-            {this.state.item.title}
+            {this.props.item.title}
           </div>
         );
       }
     });
 
-    React.render(<NewsItem/>, $('#content')[0]);
+    module.exports = NewsItem;
+    ```
+
+ 1. Create a new JS file: /js/NewsItemTest.js.
+    ```
+    var $ = require('jquery');
+    var NewsItem = require('./NewsItem');
+    var React = require('react');
+
+    $.ajax({
+      url: '/json/items.json'
+    }).then(function (items) {
+      // Log the data so we can inspect it in the developer console.
+      console.log('items', items);
+      React.render(<NewsItem item={items[0]}/>, $('#content')[0]);
+    });
     ```
 
  1. Create a new, empty CSS file: /css/NewsItem.css.
+
+ 1. Create a new CSS file: /css/app.css.
+    ```
+    body {
+      font-family: Verdana, sans-serif;
+    }
+    ```
 
  1. Create a new HTML file: /html/NewsItem.html.
     ```
@@ -140,17 +143,18 @@ NewsItem Title
         <meta charset="utf-8">
         <title>NewsItem</title>
         <link href="/css/NewsItem.css" rel="stylesheet">
+        <link href="/css/app.css" rel="stylesheet">
       </head>
       <body>
         <div id="content"></div>
-        <script src="/build/js/NewsItem.js"></script>
+        <script src="/build/js/NewsItemTest.js"></script>
       </body>
     </html>
     ```
 
  1. Start Watchify. This compiles your React (JSX) components into ordinary JavaScript.
     ```
-    watchify -v -o build/js/NewsHeader.js js/NewsHeader.js
+    watchify -v -o build/js/NewsItemTest.js js/NewsItemTest.js
     ```
 
  1. Start the HTTP server.
@@ -175,14 +179,14 @@ NewsItem Title and Domain
     var NewsItem = React.createClass({
       ...
       getDomain: function () {
-        return url.parse(this.state.item.url).hostname;
+        return url.parse(this.props.item.url).hostname;
       },
       ...
       render: function () {
         ...
         return (
           <div className="newsItem">
-            <a className="newsItem-titleLink" href={this.state.item.url}>{this.state.item.title}</a>
+            <a className="newsItem-titleLink" href={this.props.item.url}>{this.props.item.title}</a>
             <div className="newsItem-domain">
               ({this.getDomain()})
             </div>
@@ -230,19 +234,19 @@ NewsItem Subtext
       ...
       getCommentLink: function () {
         var commentText = 'discuss';
-        if (this.state.item.kids.length) {
-          commentText = this.state.item.kids.length + ' comments';
+        if (this.props.item.kids.length) {
+          commentText = this.props.item.kids.length + ' comments';
         }
 
         return (
-          <a href={'https://news.ycombinator.com/item?id=' + this.state.item.id}>{commentText}</a>
+          <a href={'https://news.ycombinator.com/item?id=' + this.props.item.id}>{commentText}</a>
         );
       },
       ...
       getSubtext: function () {
         return (
           <div className="newsItem-subtext">
-            {this.state.item.score} points by <a href={'https://news.ycombinator.com/user?id=' + this.state.item.by}>{this.state.item.by}</a> {moment.utc(this.state.item.time * 1000).fromNow()} | {this.getCommentLink()}
+            {this.props.item.score} points by <a href={'https://news.ycombinator.com/user?id=' + this.props.item.by}>{this.props.item.by}</a> {moment.utc(this.props.item.time * 1000).fromNow()} | {this.getCommentLink()}
           </div>
         );
       },
@@ -305,7 +309,7 @@ NewsItem Rank and Vote
       getVote: function () {
         return (
           <div className="newsItem-vote">
-            <a href={'https://news.ycombinator.com/vote?for=' + this.state.item.id + '&dir=up&whence=news'}>
+            <a href={'https://news.ycombinator.com/vote?for=' + this.props.item.id + '&dir=up&whence=news'}>
               <img src="/img/grayarrow2x.gif" width="10"/>
             </a>
           </div>
@@ -391,8 +395,17 @@ NewsHeader Logo and Title
       }
     });
 
-    React.render(<NewsHeader/>, $('#content')[0]);
+    module.exports = NewsHeader;
     ```
+
+1. Create a new JS file: /js/NewsHeaderTest.js.
+   ```
+   var $ = require('jquery');
+   var NewsHeader = require('./NewsHeader');
+   var React = require('react');
+
+   React.render(<NewsHeader/>, $('#content')[0]);
+   ```
 
  1. Create a new CSS file: /css/NewsHeader.css.
     ```
@@ -434,17 +447,18 @@ NewsHeader Logo and Title
         <meta charset="utf-8">
         <title>NewsHeader</title>
         <link href="/css/NewsHeader.css" rel="stylesheet">
+        <link href="/css/app.css" rel="stylesheet">
       </head>
       <body>
         <div id="content"></div>
-        <script src="/build/js/NewsHeader.js"></script>
+        <script src="/build/js/NewsHeaderTest.js"></script>
       </body>
     </html>
     ```
 
  1. Start Watchify.
     ```
-    watchify -v -o build/js/NewsHeader.js js/NewsHeader.js
+    watchify -v -o build/js/NewsHeaderTest.js js/NewsHeaderTest.js
     ```
 
  1. Start the HTTP server if necessary.
