@@ -1,6 +1,12 @@
 React HN
 ===
-This tutorial will show you how to build the Hacker News front page in React. There are four parts to this tutorial:
+This tutorial will show you how to build [the Hacker News front page in React](https://mking.github.io/react-hn). We are going to build small, self-contained components, and then we will compose them (like Lego bricks) to get the final result.
+
+Technologies learned: React, Browserify
+
+Background required: basic HTML/CSS/JS
+
+There are four parts to this tutorial:
 
  1. [Build the NewsItem](#newsitem)
 
@@ -11,13 +17,110 @@ This tutorial will show you how to build the Hacker News front page in React. Th
  3. [Build the NewsList](#newslist)
 
     <img src="img/NewsList@2x.png" width="532">
- 4. [Hook up with the Hacker News API](#hacker-news-api)
+ 4. [Display live data](#hacker-news-api)
 
     During development, we use static data from the /json directory.
 
 NewsItem
 ---
-<img src="img/NewsList@2x.png" width="532" height="1000">
+> Note: You will be building this app from scratch. This repo provides solutions for each part of the tutorial, but it isn't necessary to use any of the code here. I think it's easier to learn when you do all the steps yourself, rather than having some of them done for you.
+
+ 1. Create the initial project.
+
+    Create a directory for your project (hn) and cd into it. You will be doing your work out of this directory.
+    ```
+    mkdir hn
+    cd hn
+    ```
+
+    Create the project directory structure.
+    ```
+    mkdir -p {build/js,css,html,img,js,json}
+    ```
+
+    [Download the sample data](https://raw.githubusercontent.com/mking/react-hn/master/json/items.json) into /json.
+
+    Download [y18.gif](https://news.ycombinator.com/y18.gif) and [grayarrow2x.gif](https://news.ycombinator.com/grayarrow2x.gif) into /img.
+
+ 2. Create the initial NewsItem component.
+
+    Create the demo page (/html/NewsItem.html). This way, we can build the NewsItem component by itself, without requiring the full app.
+    ```
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>NewsItem</title>
+        <link href="/css/NewsItem.css" rel="stylesheet">
+      </head>
+      <body>
+        <div id="content"></div>
+        <script src="/build/js/NewsItem.js"></script>
+      </body>
+    </html>
+    ```
+
+    Create the JS file (/js/NewsItem.js). This is an empty component to make sure all our tools are hooked up correctly.
+    ```
+    var $ = require('jquery');
+    var React = require('react');
+
+    var NewsItem = React.createClass({
+      render: function () {
+        return (
+          <div className="newsItem">
+            NewsItem test
+          </div>
+        );
+      }
+    });
+
+    React.render(<NewsItem/>, $('#content')[0]);
+    ```
+
+    Create CSS file (/css/NewsItem.css): an empty file.
+
+ 3. Install, configure, and run Browserify.
+
+    Create /package.json.
+    ```
+    {
+      "name": "hn",
+      "version": "0.1.0",
+      "private": true
+    }
+    ```
+
+    Install Browserify, React, and tools.
+    ```
+    npm install --save react jquery lodash moment
+    npm install --save-dev browserify watchify reactify
+    npm install -g browserify watchify
+    ```
+
+    Configure Browserify in /package.json
+    ```
+    {
+      ...,
+      "browserify": {
+        "transform": [
+          ["reactify"]
+        ]
+      }
+    }
+    ```
+
+    Run Watchify. We need Watchify in order to recompile JSX files whenever they change. I normally run Watchify in a separate terminal tab, and I normally use the `-v` flag so that I can see when files are recompiled.
+    ```
+    watchify -v -o build/js/NewsItem.js js/NewsItem.js
+    ```
+
+ 4. Run the demo.
+    ```
+    # Visit http://localhost:8888/html/NewsItem.html
+    # You should see "NewsItem test".
+    python -m SimpleHTTPServer 8888
+    ```
 
 NewsHeader
 ---
