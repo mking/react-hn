@@ -542,7 +542,7 @@ NewsHeader Nav
           <div className="newsHeader-nav">
             {_.map(navLinks, function (navLink) {
               return (
-                <a key={navLink.url} className="newsHeader-navLink newsHeader-textLink" href={'https://news.ycombinator.com/' + navLink.path}>
+                <a key={navLink.url} className="newsHeader-navLink newsHeader-textLink" href={'https://news.ycombinator.com/' + navLink.url}>
                   {navLink.name}
                 </a>
               );
