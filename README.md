@@ -338,7 +338,7 @@ NewsItem Rank and Vote
       text-align: center;
     }
     ```
-    
+
  3. Refresh the browser.
 
 NewsHeader
