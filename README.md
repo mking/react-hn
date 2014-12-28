@@ -22,8 +22,11 @@ Style
 JS
 - One file per component
 - Alphabetize methods and requires
+- Use `get*` for render helpers. A component should have one main method (`render()`) that breaks out into smaller render helpers.
+- Use `handle*` for event handlers.
+- Follow the React team's JS style.
 
 CSS
 - One file per component
 - Alphabetize rules and declarations
-- Follow [Jacob Thornton's CSS style guide](https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06) (components and variables only)
+- Follow [Jacob Thornton's CSS style](https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06) (components and variables only)
