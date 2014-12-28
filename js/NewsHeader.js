@@ -14,7 +14,7 @@ var NewsHeader = React.createClass({
   getLogo: function () {
     return (
       <div className="newsHeader-logo">
-        <a href="https://www.ycombinator.com"><img src="/img/y18.gif"/></a>
+        <a href="https://www.ycombinator.com"><img src="../img/y18.gif"/></a>
       </div>
     );
   },

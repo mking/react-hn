@@ -152,12 +152,12 @@ NewsItem Title
       <head>
         <meta charset="utf-8">
         <title>NewsItem</title>
-        <link href="/css/NewsItem.css" rel="stylesheet">
-        <link href="/css/app.css" rel="stylesheet">
+        <link href="../css/NewsItem.css" rel="stylesheet">
+        <link href="../css/app.css" rel="stylesheet">
       </head>
       <body>
         <div id="content"></div>
-        <script src="/build/js/NewsItemTest.js"></script>
+        <script src="../build/js/NewsItemTest.js"></script>
       </body>
     </html>
     ```
@@ -464,12 +464,12 @@ NewsHeader Logo and Title
       <head>
         <meta charset="utf-8">
         <title>NewsHeader</title>
-        <link href="/css/NewsHeader.css" rel="stylesheet">
-        <link href="/css/app.css" rel="stylesheet">
+        <link href="../css/NewsHeader.css" rel="stylesheet">
+        <link href="../css/app.css" rel="stylesheet">
       </head>
       <body>
         <div id="content"></div>
-        <script src="/build/js/NewsHeaderTest.js"></script>
+        <script src="../build/js/NewsHeaderTest.js"></script>
       </body>
     </html>
     ```
@@ -684,15 +684,16 @@ NewsList Header and Items
     <!DOCTYPE html>
     <html>
       <head>
+        <meta charset="utf-8">
         <title>NewsList</title>
-        <link href="/css/NewsHeader.css" rel="stylesheet">
-        <link href="/css/NewsItem.css" rel="stylesheet">
-        <link href="/css/NewsList.css" rel="stylesheet">
-        <link href="/css/app.css" rel="stylesheet">
+        <link href="../css/NewsHeader.css" rel="stylesheet">
+        <link href="../css/NewsItem.css" rel="stylesheet">
+        <link href="../css/NewsList.css" rel="stylesheet">
+        <link href="../css/app.css" rel="stylesheet">
       </head>
       <body>
         <div id="content"></div>
-        <script src="/build/js/NewsListTest.js"></script>
+        <script src="../build/js/NewsListTest.js"></script>
       </body>
     </html>
     ```
@@ -829,15 +830,16 @@ Hacker News API
     <!DOCTYPE html>
     <html>
       <head>
+        <meta charset="utf-8">
         <title>Hacker News</title>
-        <link href="/css/NewsHeader.css" rel="stylesheet">
-        <link href="/css/NewsItem.css" rel="stylesheet">
-        <link href="/css/NewsList.css" rel="stylesheet">
-        <link href="/css/app.css" rel="stylesheet">
+        <link href="../css/NewsHeader.css" rel="stylesheet">
+        <link href="../css/NewsItem.css" rel="stylesheet">
+        <link href="../css/NewsList.css" rel="stylesheet">
+        <link href="../css/app.css" rel="stylesheet">
       </head>
       <body>
         <div id="content"></div>
-        <script src="/build/js/app.js"></script>
+        <script src="../build/js/app.js"></script>
       </body>
     </html>
     ```

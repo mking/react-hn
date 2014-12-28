@@ -2,7 +2,7 @@
 
 TODO
 ---
-- mking.github.io/react-hn.
+- Build task for GitHub pages.
 
 Run Through Checklist
 ---
