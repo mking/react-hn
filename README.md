@@ -309,7 +309,7 @@ NewsItem Rank and Vote
         return (
           <div className="newsItem-vote">
             <a href={'https://news.ycombinator.com/vote?for=' + this.props.item.id + '&dir=up&whence=news'}>
-              <img src="/img/grayarrow2x.gif" width="10"/>
+              <img src="../img/grayarrow2x.gif" width="10"/>
             </a>
           </div>
         );
@@ -394,7 +394,7 @@ NewsHeader Logo and Title
       getLogo: function () {
         return (
           <div className="newsHeader-logo">
-            <a href="https://www.ycombinator.com"><img src="/img/y18.gif"/></a>
+            <a href="https://www.ycombinator.com"><img src="../img/y18.gif"/></a>
           </div>
         );
       },
