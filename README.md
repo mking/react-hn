@@ -678,7 +678,7 @@ NewsList Header and Items
     });
     ```
 
- 1. Create a new CSS file: /js/NewsList.css.
+ 1. Create a new CSS file: /css/NewsList.css.
     ```
     .newsList {
       background: #f6f6ef;
@@ -729,7 +729,7 @@ NewsList More
 ---
  1. Update the JS.
     ```
-    var NewsHeader = React.createClass({
+    var NewsList = React.createClass({
       ...
       getMore: function () {
         return (
