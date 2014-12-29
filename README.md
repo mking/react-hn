@@ -61,7 +61,7 @@ Setup
     npm install --save-dev browserify watchify reactify
 
     # These dependencies are globally installed command line tools.
-    npm install -g browserify watchify
+    npm install -g browserify watchify http-server
     ```
 
 [Next](#newsitem)
@@ -175,7 +175,7 @@ NewsItem Title
 
  1. Start the HTTP server.
     ```
-    python -m SimpleHTTPServer 8888
+    http-server -p 8888
     ```
 
  1. Visit [http://localhost:8888/html/NewsItem.html](http://localhost:8888/html/NewsItem.html). You should see the following.
@@ -491,7 +491,7 @@ NewsHeader Logo and Title
 
  1. Start the HTTP server if necessary.
     ```
-    python -m SimpleHTTPServer 8888
+    http-server -p 8888
     ```
 
  1. Visit [http://localhost:8888/html/NewsHeader.html](http://localhost:8888/html/NewsHeader.html). You should see the following.
@@ -714,7 +714,7 @@ NewsList Header and Items
 
  1. Start the HTTP server if necessary.
     ```
-    python -m SimpleHTTPServer 8888
+    http-server -p 8888
     ```
 
  1. Visit [http://localhost:8888/html/NewsList.html](http://localhost:8888/html/NewsList.html). You should see the following.
@@ -836,7 +836,7 @@ Hacker News API
 
  1. Start the HTTP server if necessary.
     ```
-    python -m SimpleHTTPServer 8888
+    http-server -p 8888
     ```
 
  1. Visit [http://localhost:8888/html/app.html](http://localhost:8888/html/app.html).
