@@ -54,7 +54,7 @@ Setup
 
  1. Install Browserify, React, and tools.
     ```
-    # These dependencies are required for the running app.
+    # These dependencies are required for running the app.
     npm install --save react jquery lodash moment
 
     # These dependencies are required for building the app.
