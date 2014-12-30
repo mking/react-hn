@@ -806,7 +806,7 @@ Hacker News API
 
       // Render the items
       React.render(<NewsList items={items}/>, $('#content')[0]);
-    }.bind(this));
+    });
 
     ```
 

@@ -22,4 +22,4 @@ $.ajax({
     return argument[0];
   });
   React.render(<NewsList items={items}/>, $('#content')[0]);
-}.bind(this));
+});
