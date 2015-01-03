@@ -27,7 +27,7 @@ This tutorial has five parts:
 Setup
 ---
  1. Create the project directory structure.
-    ```
+    ```bash
     mkdir -p hn/{build/js,css,html,img,js,json}
     cd hn
     ```
@@ -39,7 +39,7 @@ Setup
  1. Download [y18.gif](https://news.ycombinator.com/y18.gif) and [grayarrow2x.gif](https://news.ycombinator.com/grayarrow2x.gif) into /img.
 
  1. Create /package.json.
-    ```
+    ```json
     {
       "name": "hn",
       "version": "0.1.0",
@@ -53,7 +53,7 @@ Setup
     ```
 
  1. Install Browserify, React, and tools.
-    ```
+    ```bash
     # These dependencies are required for running the app.
     npm install --save react jquery lodash moment
 
@@ -93,7 +93,7 @@ NewsItem
 NewsItem Title
 ---
  1. Create a new JS file: /js/NewsItem.js.
-    ```
+    ```javascript
     var $ = require('jquery');
     var React = require('react');
 
@@ -113,7 +113,7 @@ NewsItem Title
     > Note: You should be able to paste this code directly into your JS file.
 
  1. Create a new JS file: /js/NewsItemTest.js.
-    ```
+    ```javascript
     var $ = require('jquery');
     var NewsItem = require('./NewsItem');
     var React = require('react');
@@ -131,7 +131,7 @@ NewsItem Title
     > Note: This lets us develop the NewsItem component in isolation, rather than requiring it to be hooked into the full app.
 
  1. Create a new CSS file: /css/NewsItem.css. We are following [Jacob Thornton's CSS style guide](https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06).
-    ```
+    ```css
     .newsItem {
       color: #828282;
       margin-top: 5px;
@@ -145,14 +145,14 @@ NewsItem Title
     ```
 
  1. Create a new CSS file: /css/app.css.
-    ```
+    ```css
     body {
       font-family: Verdana, sans-serif;
     }
     ```
 
  1. Create a new HTML file: /html/NewsItem.html.
-    ```
+    ```html
     <!DOCTYPE html>
     <html>
       <head>
@@ -169,12 +169,12 @@ NewsItem Title
     ```
 
  1. Start Watchify. This compiles your React (JSX) components into ordinary JavaScript.
-    ```
+    ```bash
     watchify -v -o build/js/NewsItemTest.js js/NewsItemTest.js
     ```
 
  1. Start the HTTP server.
-    ```
+    ```bash
     http-server -p 8888
     ```
 
@@ -189,15 +189,17 @@ NewsItem Title
 NewsItem Domain
 ---
  1. Update the JS.
-    ```
+    ```javascript
+    // ...
     var url = require('url');
-    ...
+
     var NewsItem = React.createClass({
-      ...
+      // ...
+
       getDomain: function () {
         return url.parse(this.props.item.url).hostname;
       },
-      ...
+
       render: function () {
         return (
           <div className="newsItem">
@@ -213,7 +215,7 @@ NewsItem Domain
     > Note: This code should be added onto the existing code in /js/NewsItem.js.
 
  1. Update the CSS.
-    ```
+    ```css
     .newsItem-domain {
       font-size: 8pt;
       margin-left: 5px;
@@ -233,11 +235,13 @@ NewsItem Domain
 NewsItem Subtext
 ---
  1. Update the JS. Note: We are factoring out the title part into its own method.
-    ```
+    ```javascript
+    // ...
     var moment = require('moment');
-    ...
+
     var NewsItem = React.createClass({
-      ...
+      // ...
+
       getCommentLink: function () {
         var commentText = 'discuss';
         if (this.props.item.kids && this.props.item.kids.length) {
@@ -250,7 +254,7 @@ NewsItem Subtext
           <a href={'https://news.ycombinator.com/item?id=' + this.props.item.id}>{commentText}</a>
         );
       },
-      ...
+
       getSubtext: function () {
         return (
           <div className="newsItem-subtext">
@@ -258,7 +262,7 @@ NewsItem Subtext
           </div>
         );
       },
-      ...
+
       getTitle: function () {
         return (
           <div className="newsItem-title">
@@ -266,7 +270,7 @@ NewsItem Subtext
           </div>
         );
       },
-      ...
+
       render: function () {
         return (
           <div className="newsItem">
@@ -278,16 +282,16 @@ NewsItem Subtext
     ```
 
  1. Update the CSS.
-    ```
+    ```css
     .newsItem-subtext {
       font-size: 7pt;
     }
-    ...
+
     .newsItem-subtext > a {
       color: #828282;
       text-decoration: none;
     }
-    ...
+
     .newsItem-subtext > a:hover {
       text-decoration: underline;
     }
@@ -304,9 +308,10 @@ NewsItem Subtext
 NewsItem Rank and Vote
 ---
  1. Update the JS.
-     ```
+     ```javascript
     var NewsItem = React.createClass({
-      ...
+      // ...
+
       getRank: function () {
         return (
           <div className="newsItem-rank">
@@ -314,7 +319,7 @@ NewsItem Rank and Vote
           </div>
         );
       },
-      ...
+
       getVote: function () {
         return (
           <div className="newsItem-vote">
@@ -324,7 +329,7 @@ NewsItem Rank and Vote
           </div>
         );
       },
-      ...
+
       render: function () {
         return (
           <div className="newsItem">
@@ -340,23 +345,23 @@ NewsItem Rank and Vote
     ```
 
  1. Update the CSS.
-    ```
+    ```css
     .newsItem {
-      ...
+      /* ... */
       align-items: baseline;
       display: flex;  
     }
-    ...
+
     .newsItem-itemText {
       flex-grow: 1;
     }
-    ...
+
     .newsItem-rank {
       flex-basis: 25px;
       font-size: 10pt;
       text-align: right;
     }
-    ...
+
     .newsItem-vote {
       flex-basis: 15px;
       text-align: center;
@@ -396,7 +401,7 @@ NewsHeader
 NewsHeader Logo and Title
 ---
  1. Create a new JS file: /js/NewsHeader.js.
-    ```
+    ```javascript
     var $ = require('jquery');
     var React = require('react');
 
@@ -431,7 +436,7 @@ NewsHeader Logo and Title
     ```
 
  1. Create a new JS file: /js/NewsHeaderTest.js.
-    ```
+    ```javascript
     var $ = require('jquery');
     var NewsHeader = require('./NewsHeader');
     var React = require('react');
@@ -440,7 +445,7 @@ NewsHeader Logo and Title
     ```
 
  1. Create a new CSS file: /css/NewsHeader.css.
-    ```
+    ```css
     .newsHeader {
       align-items: center;
       background: #ff6600;
@@ -468,7 +473,7 @@ NewsHeader Logo and Title
     ```
 
  1. Create a new HTML file: /html/NewsHeader.html.
-    ```
+    ```html
     <!DOCTYPE html>
     <html>
       <head>
@@ -485,12 +490,12 @@ NewsHeader Logo and Title
     ```
 
  1. Start Watchify.
-    ```
+    ```bash
     watchify -v -o build/js/NewsHeaderTest.js js/NewsHeaderTest.js
     ```
 
  1. Start the HTTP server if necessary.
-    ```
+    ```bash
     http-server -p 8888
     ```
 
@@ -505,11 +510,13 @@ NewsHeader Logo and Title
 NewsHeader Nav
 ---
  1. Update the JS.
-    ```
+    ```javascript
+    // ...
     var _ = require('lodash');
-    ...
+
     var NewsHeader = React.createClass({
-      ...
+      // ...
+
       getNav: function () {
         var navLinks = [
           {
@@ -550,7 +557,7 @@ NewsHeader Nav
           </div>
         );
       },
-      ...
+
       render: function () {
         return (
           <div className="newsHeader">
@@ -562,12 +569,12 @@ NewsHeader Nav
     ```
 
  1. Update the CSS.
-    ```
+    ```css
     .newsHeader-nav {
       flex-grow: 1;
       margin-left: 10px;
     }
-    ...
+
     .newsHeader-navLink:not(:first-child)::before {
       content: ' | ';
     }
@@ -584,9 +591,10 @@ NewsHeader Nav
 NewsHeader Login
 ---
  1. Update the JS.
-    ```
+    ```javascript
     var NewsHeader = React.createClass({
-      ...
+      // ...
+
       getLogin: function () {
         return (
           <div className="newsHeader-login">
@@ -594,7 +602,7 @@ NewsHeader Login
           </div>
         );
       },
-      ...
+
       render: function () {
         return (
           <div className="newsHeader">
@@ -606,7 +614,7 @@ NewsHeader Login
     ```
 
  1. Update the CSS.
-    ```
+    ```css
     .newsHeader-login {
       margin-right: 5px;
     }
@@ -641,7 +649,7 @@ NewsList
 NewsList Header and Items
 ---
  1. Create a new JS file: /js/NewsList.js.
-    ```
+    ```javascript
     var _ = require('lodash');
     var NewsHeader = require('./NewsHeader');
     var NewsItem = require('./NewsItem');
@@ -666,7 +674,7 @@ NewsList Header and Items
     ```
 
  1. Create a new JS file: /js/NewsListTest.js.
-    ```
+    ```javascript
     var $ = require('jquery');
     var NewsList = require('./NewsList');
     var React = require('react');
@@ -679,7 +687,7 @@ NewsList Header and Items
     ```
 
  1. Create a new CSS file: /css/NewsList.css.
-    ```
+    ```css
     .newsList {
       background: #f6f6ef;
       margin-left: auto;
@@ -689,7 +697,7 @@ NewsList Header and Items
     ```
 
  1. Create a new HTML file: /html/NewsList.html.
-    ```
+    ```html
     <!DOCTYPE html>
     <html>
       <head>
@@ -708,12 +716,12 @@ NewsList Header and Items
     ```
 
  1. Start Watchify.
-     ```
+     ```bash
     watchify -v -o build/js/NewsListTest.js js/NewsListTest.js
     ```
 
  1. Start the HTTP server if necessary.
-    ```
+    ```bash
     http-server -p 8888
     ```
 
@@ -728,9 +736,10 @@ NewsList Header and Items
 NewsList More
 ---
  1. Update the JS.
-    ```
+    ```javascript
     var NewsList = React.createClass({
-      ...
+      // ...
+
       getMore: function () {
         return (
           <div className="newsList-more">
@@ -738,7 +747,7 @@ NewsList More
           </div>
         );
       },
-      ...
+
       render: function () {
         return (
           <div className="newsList">
@@ -750,7 +759,7 @@ NewsList More
     ```
 
  1. Update the CSS.
-    ```
+    ```css
     .newsList-more {
       margin-left: 40px; /* matches NewsItem rank and vote */
       margin-top: 10px;
@@ -779,7 +788,7 @@ NewsList More
 Hacker News API
 ---
  1. Create a new JS file: /js/app.js.
-    ```
+    ```javascript
     var _ = require('lodash');
     var $ = require('jquery');
     var NewsList = require('./NewsList');
@@ -811,7 +820,7 @@ Hacker News API
     ```
 
  1. Create a new HTML file: /html/app.html.
-    ```
+    ```html
     <!DOCTYPE html>
     <html>
       <head>
@@ -830,12 +839,12 @@ Hacker News API
     ```
 
  1. Start Watchify.
-     ```
+    ```bash
     watchify -v -o build/js/app.js js/app.js
     ```
 
  1. Start the HTTP server if necessary.
-    ```
+    ```bash
     http-server -p 8888
     ```
 
