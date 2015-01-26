@@ -9,17 +9,17 @@ $.ajax({
   dataType: 'json'
 }).then(function (stories) {
   // Get the item details in parallel
-  var detailDeferreds = _.map(stories.slice(0, 30), function (itemId) {
+  var detailDeferreds = _(stories.slice(0, 30)).map(function (itemId) {
     return $.ajax({
       url: 'https://hacker-news.firebaseio.com/v0/item/' + itemId + '.json',
       dataType: 'json'
     });
-  });
+  }).value();
   return $.when.apply($, detailDeferreds);
 }).then(function () {
   // Extract the response JSON
-  var items = _.map(arguments, function (argument) {
+  var items = _(arguments).map(function (argument) {
     return argument[0];
-  });
+  }).value();
   React.render(<NewsList items={items}/>, $('#content')[0]);
 });

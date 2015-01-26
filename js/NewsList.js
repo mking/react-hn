@@ -17,9 +17,9 @@ var NewsList = React.createClass({
       <div className="newsList">
         <NewsHeader/>
         <div className="newsList-items">
-          {_.map(this.props.items, function (item, index) {
+          {_(this.props.items).map(function (item, index) {
             return <NewsItem key={item.id} item={item} rank={index + 1}/>;
-          }.bind(this))}
+          }.bind(this)).value()}
         </div>
         {this.getMore()}
       </div>

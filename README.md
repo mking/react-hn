@@ -547,13 +547,13 @@ NewsHeader Nav
 
         return (
           <div className="newsHeader-nav">
-            {_.map(navLinks, function (navLink) {
+            {_(navLinks).map(function (navLink) {
               return (
                 <a key={navLink.url} className="newsHeader-navLink newsHeader-textLink" href={'https://news.ycombinator.com/' + navLink.url}>
                   {navLink.name}
                 </a>
               );
-            })}
+            }).value()}
           </div>
         );
       },
@@ -661,9 +661,9 @@ NewsList Header and Items
           <div className="newsList">
             <NewsHeader/>
             <div className="newsList-newsItems">
-              {_.map(this.props.items, function (item, index) {
+              {_(this.props.items).map(function (item, index) {
                 return <NewsItem key={item.id} item={item} rank={index + 1}/>;
-              }.bind(this))}
+              }.bind(this)).value()}
             </div>
           </div>
         );
@@ -800,18 +800,18 @@ Hacker News API
       dataType: 'json'
     }).then(function (stories) {
       // Get the item details in parallel
-      var detailDeferreds = _.map(stories.slice(0, 30), function (itemId) {
+      var detailDeferreds = _(stories.slice(0, 30)).map(function (itemId) {
         return $.ajax({
           url: 'https://hacker-news.firebaseio.com/v0/item/' + itemId + '.json',
           dataType: 'json'
         });
-      });
+      }).value();
       return $.when.apply($, detailDeferreds);
     }).then(function () {
       // Extract the response JSON
-      var items = _.map(arguments, function (argument) {
+      var items = _(arguments).map(function (argument) {
         return argument[0];
-      });
+      }).value();
 
       // Render the items
       React.render(<NewsList items={items}/>, $('#content')[0]);
