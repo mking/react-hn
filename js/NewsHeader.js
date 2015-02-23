@@ -3,6 +3,31 @@ var $ = require('jquery');
 var React = require('react');
 
 var NewsHeader = React.createClass({
+	statics: {
+		navLinks: [
+			{
+				name: 'new',
+				url: 'newest'
+			},
+			{
+				name: 'comments',
+				url: 'newcomments'
+			},
+			{
+				name: 'ask',
+				url:'ask'
+			},
+			{
+				name: 'jobs',
+				url: 'jobs'
+			},
+			{
+				name: 'submit',
+				url: 'submit'
+			},
+		]
+	},
+
   getLogin: function () {
     return (
       <div className="newsHeader-login">
@@ -20,36 +45,9 @@ var NewsHeader = React.createClass({
   },
 
   getNav: function () {
-    var navLinks = [
-      {
-        name: 'new',
-        url: 'newest'
-      },
-      {
-        name: 'comments',
-        url: 'newcomments'
-      },
-      {
-        name: 'show',
-        url: 'show'
-      },
-      {
-        name: 'ask',
-        url: 'ask'
-      },
-      {
-        name: 'jobs',
-        url: 'jobs'
-      },
-      {
-        name: 'submit',
-        url: 'submit'
-      }
-    ];
-
     return (
       <div className="newsHeader-nav">
-        {_(navLinks).map(function (navLink) {
+        {_(NewsHeader.navLinks).map(function (navLink) {
           return (
             <a key={navLink.url} className="newsHeader-navLink newsHeader-textLink" href={'https://news.ycombinator.com/' + navLink.url}>
               {navLink.name}
