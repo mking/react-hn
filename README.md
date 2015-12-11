@@ -64,6 +64,8 @@ Setup
     npm install -g browserify watchify http-server
     ```
 
+    Notice: The version of react is 0.12.2 in this repo. If your local version is ^0.14, some usecase may be different in js file. 
+
 [Next](#newsitem)
 
 ---
