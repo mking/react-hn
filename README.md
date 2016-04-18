@@ -55,7 +55,7 @@ Setup
  1. Install Browserify, React, and tools.
     ```bash
     # These dependencies are required for running the app.
-    npm install --save react jquery lodash moment
+    npm install --save react react-dom jquery lodash moment
 
     # These dependencies are required for building the app.
     npm install --save-dev browserify watchify reactify
@@ -117,6 +117,7 @@ NewsItem Title
     var $ = require('jquery');
     var NewsItem = require('./NewsItem');
     var React = require('react');
+    var ReactDOM = require('react-dom');
 
     $.ajax({
       url: '/json/items.json'
@@ -124,7 +125,7 @@ NewsItem Title
       // Log the data so we can inspect it in the developer console.
       console.log('items', items);
       // Use a fake rank for now.
-      React.render(<NewsItem item={items[0]} rank={1}/>, $('#content')[0]);
+      ReactDOM.render(<NewsItem item={items[0]} rank={1}/>, $('#content')[0]);
     });
     ```
 
